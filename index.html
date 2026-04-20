@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>André | Tutoría Privada de Élite</title>
+    <title>André Ríos | Tutoría Privada de Élite</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -52,6 +52,53 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 60px 0;
+        }
+
+        /* Sección Perfil */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 80px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--azul-marino);
+        }
+
+        .profile-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--azul-marino);
+            margin-bottom: 5px;
+        }
+
+        .profile-tag {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--azul-marino);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .btn-linkedin {
+            display: inline-block;
+            background-color: #0077b5;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-linkedin:hover {
+            background-color: #005582;
         }
 
         .section-title {
@@ -140,7 +187,7 @@
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
-            margin-bottom: 40px; /* Reducido un poco para acercar a los pagos */
+            margin-bottom: 40px;
         }
 
         .price-card {
@@ -159,6 +206,20 @@
         .price-card.featured {
             border: 2px solid var(--dorado);
             background-color: #fffdf9;
+            position: relative;
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dorado);
+            color: var(--azul-marino);
+            padding: 5px 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
         }
 
         .price-amount {
@@ -182,7 +243,6 @@
             border: 1px solid var(--dorado);
         }
 
-        /* ESTILO PARA EL TEXTO DE PAGO DESPUÉS DE CLASES */
         .pago-despues {
             color: var(--azul-marino);
             font-style: italic;
@@ -239,88 +299,8 @@
     </header>
 
     <div class="container">
-        
-        <h2 class="section-title">Propuesta Educativa</h2>
-        <div class="materias-grid">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>MATEMÁTICAS</h3>
-                        <span style="color:var(--dorado)">Ver detalles ↪</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Dominio total de Cálculo 1, álgebra y razonamiento matemático. Preparación precisa para exámenes críticos.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>HISTORIA</h3>
-                        <span style="color:var(--dorado)">Ver detalles ↪</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Análisis profundo mediante técnicas de oratoria y storytelling. Comprensión real del contexto histórico.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>PROGRAMACIÓN</h3>
-                        <span style="color:var(--dorado)">Ver detalles ↪</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Introducción a la lógica y algoritmos con Python. Formación tecnológica individualizada de alta demanda.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title">Inversión y Promociones</h2>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h4>Sesión Individual</h4>
-                <div class="price-amount"><span>S/</span> 34.90</div>
-                <p>Clase personalizada de 1 hora enfocada en objetivos específicos.</p>
-            </div>
-
-            <div class="price-card featured">
-                <h4 style="color:var(--dorado)">Dúo Pack Especial</h4>
-                <div class="price-amount"><span>S/</span> 59.90</div>
-                <p>Pack de 2 clases. Ideal para refuerzo intensivo antes de exámenes.</p>
-                <small style="color:#27ae60; font-weight:bold;">Ahorro exclusivo</small>
-            </div>
-        </div>
-
-        <div class="payment-info">
-            <h3 style="font-family: 'Playfair Display', serif; color: var(--azul-marino); margin-top: 0;">Facilidades de Pago</h3>
-            
-            <div class="pago-despues">
-                * Los pagos se hacen después de clases.
-            </div>
-
-            <div class="payment-methods">
-                <div class="method">
-                    <strong>📱 Yape</strong>
-                    <span>970549915</span>
-                </div>
-                <div class="method">
-                    <strong>🏦 Cuenta BCP</strong>
-                    <span>[Tu número de cuenta aquí]</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <section class="contacto-final">
-        <h2>Inicie su Formación de Élite</h2>
-        <p>Reserva tu espacio directamente por WhatsApp.</p>
-        <a href="https://wa.me/51970549915" target="_blank" class="btn-gold">Consultar Disponibilidad</a>
-    </section>
-
-</body>
-</html>
+        <section class="profile-section">
+            <span class="profile-tag">Perfil del Tutor</span>
+            <h2>André Ríos</h2>
+            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.1
