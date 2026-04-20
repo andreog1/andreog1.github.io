@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>André Ríos | Tutoría Privada de Élite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --azul-marino: #0b1a2a;
@@ -17,7 +17,7 @@
         header { background-color: var(--azul-marino); color: white; padding: 80px 20px; text-align: center; border-bottom: 4px solid var(--dorado); }
         header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; color: var(--dorado-brillante); }
         header p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 60px 0; }
+        .container { width: 95%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
         
         /* Secciones Base */
         .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--azul-marino); }
@@ -25,7 +25,7 @@
         
         /* Perfil */
         .profile-section { text-align: center; margin-bottom: 80px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--azul-marino); }
-        .profile-tag { display: inline-block; background: var(--dorado); color: var(--azul-marino); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; margin-bottom: 20px; }
+        .profile-tag { display: inline-block; background: var(--dorado); color: var(--azul-marino); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; margin-bottom: 20px; text-transform: uppercase; }
         .btn-linkedin { display: inline-block; background-color: #0077b5; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: 600; margin-top: 20px; transition: background 0.3s; }
         .btn-linkedin:hover { background-color: #005582; }
 
@@ -42,39 +42,52 @@
         /* Precios y Pagos */
         .pricing-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-bottom: 40px; }
         .price-card { background: white; padding: 40px; width: 100%; max-width: 320px; text-align: center; border-radius: 8px; border: 1px solid #e1e1e1; }
-        .price-card.featured { border: 2px solid var(--dorado); background-color: #fffdf9; }
+        .price-card.featured { border: 2px solid var(--dorado); background-color: #fffdf9; position: relative; }
+        .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--dorado); color: var(--azul-marino); padding: 5px 20px; font-size: 0.75rem; font-weight: 600; border-radius: 20px; }
         .price-amount { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--azul-marino); margin: 15px 0; }
         .price-amount span { font-size: 1.2rem; }
+        
         .payment-info { background: white; padding: 40px; border-radius: 12px; text-align: center; max-width: 600px; margin: 0 auto 80px auto; border: 1px solid var(--dorado); }
+        .pago-despues { color: var(--azul-marino); font-style: italic; font-weight: 600; font-size: 1.1rem; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .payment-methods { display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 10px; }
+        .method { margin: 10px; }
+        .method strong { color: var(--azul-marino); display: block; font-size: 1.2rem; }
+
+        /* SISTEMA DE RESERVAS (ESTILO MATRIZ) */
+        .booking-section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 4px solid var(--dorado); }
+        .step-title { font-family: 'Playfair Display', serif; color: var(--azul-marino); font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         
-        /* SISTEMA DE RESERVAS INTERACTIVO */
-        .booking-section { background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 60px; border-top: 4px solid var(--dorado); }
+        .calendar-container { overflow-x: auto; margin-bottom: 40px; border-radius: 8px; border: 1px solid #ddd; }
+        .calendar-table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        .calendar-table th, .calendar-table td { border: 1px solid #e1e1e1; text-align: center; padding: 12px 8px; font-size: 0.85rem; }
+        .calendar-table th { background-color: var(--azul-marino); color: white; position: sticky; top: 0; font-size: 0.95rem; letter-spacing: 1px; }
+        .calendar-table .time-label { background-color: #f8f9fa; font-weight: bold; color: var(--azul-marino); }
         
-        .booking-steps { display: flex; flex-wrap: wrap; gap: 40px; }
-        .step { flex: 1; min-width: 300px; }
-        .step h3 { font-family: 'Playfair Display', serif; color: var(--azul-marino); font-size: 1.5rem; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        /* Celdas Disponibles */
+        .slot { background-color: #f0f4f8; cursor: pointer; transition: all 0.2s; color: #2c3e50; }
+        .slot:hover { background-color: #dbe4ef; border-color: var(--dorado); color: var(--azul-marino); font-weight: 600; }
+        .slot.selected { background-color: var(--dorado); color: var(--azul-marino); font-weight: bold; transform: scale(0.95); box-shadow: inset 0 0 10px rgba(0,0,0,0.15); border: 2px solid var(--azul-marino); }
         
-        /* Calendario Interactivo */
-        .calendar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
-        .day-col { display: flex; flex-direction: column; gap: 8px; }
-        .day-header { text-align: center; font-weight: 600; color: white; background: var(--azul-marino); padding: 8px 0; border-radius: 4px; font-size: 0.9rem; }
-        .time-slot { background: #f0f4f8; border: 1px solid #dcdcdc; padding: 10px 0; text-align: center; cursor: pointer; border-radius: 4px; font-size: 0.9rem; transition: all 0.2s; }
-        .time-slot:hover { background: #e2e8f0; border-color: var(--dorado); }
-        .time-slot.selected { background: var(--dorado); color: var(--azul-marino); font-weight: bold; border-color: var(--dorado); transform: scale(1.05); box-shadow: 0 4px 10px rgba(197, 160, 89, 0.4); }
-        .time-slot.disabled { background: #eee; color: #aaa; cursor: not-allowed; text-decoration: line-through; }
+        /* Celdas Ocupadas */
+        .disabled { background-color: #f9f9f9; color: #bbb; cursor: not-allowed; font-style: italic; }
         
         /* Formulario */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+        
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; color: var(--azul-marino); }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
-        .form-group input:focus { border-color: var(--dorado); outline: none; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Montserrat', sans-serif; box-sizing: border-box; background-color: #fafafa; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--dorado); outline: none; background-color: white; }
         
-        .btn-reservar { display: block; width: 100%; background: var(--azul-marino); color: white; border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; font-family: 'Montserrat', sans-serif; border-radius: 4px; cursor: pointer; transition: background 0.3s; margin-top: 20px; text-transform: uppercase; }
+        .resumen-seleccion { background: #eef2f5; padding: 15px; border-left: 4px solid var(--dorado); margin-top: 20px; border-radius: 4px; font-weight: 600; color: var(--azul-marino); display: none; }
+
+        .btn-reservar { display: block; width: 100%; max-width: 400px; margin: 30px auto 0 auto; background: var(--azul-marino); color: white; border: none; padding: 18px; font-size: 1.1rem; font-weight: bold; font-family: 'Montserrat', sans-serif; border-radius: 4px; cursor: pointer; transition: background 0.3s; text-transform: uppercase; }
         .btn-reservar:hover { background: var(--dorado); color: var(--azul-marino); }
         
-        #mensaje-error { color: #e74c3c; font-size: 0.9rem; margin-top: 10px; display: none; font-weight: bold; }
+        #mensaje-error { color: #e74c3c; font-size: 0.9rem; margin-top: 10px; display: none; font-weight: bold; text-align: center; }
 
-        .contacto-final { background-color: var(--azul-marino); color: white; text-align: center; padding: 60px 20px; }
+        .contacto-final { background-color: var(--azul-marino); color: white; text-align: center; padding: 60px 20px; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -92,7 +105,7 @@
             <h2 style="font-family: 'Playfair Display', serif; color: #0b1a2a; margin-bottom: 5px;">André Ríos</h2>
             <h3 style="color: #333; margin-top: 0; font-weight: 600; font-size: 1.1rem;">Estudiante de Ingeniería de Sistemas - Universidad de Lima</h3>
             <p style="color: #444; line-height: 1.8; max-width: 800px; margin: 20px auto; font-size: 1.05rem;">
-                Como estudiante de Ingeniería de Sistemas en la Universidad de Lima, me enfrento a diario con la resolución de problemas complejos. Mi sólida formación en desarrollo de software (Python, Java, C) me ha enseñado exactamente cómo se deben aprender las ciencias: no mediante la memorización, sino desarrollando un pensamiento lógico y estructurado. Mi objetivo es transmitir este método analítico a mis alumnos, dándoles herramientas reales para que dominen los números y la programación desde sus bases.
+                Como estudiante de Ingeniería de Sistemas en la Universidad de Lima, me enfrento a diario con la resolución de problemas complejos. Mi sólida formación en desarrollo de software (Python, Java, C) me ha enseñado exactamente cómo se deben aprender las matemáticas: no mediante la memorización de fórmulas, sino desarrollando un pensamiento lógico y estructurado. Mi objetivo es transmitir este método analítico a mis alumnos, dándoles las herramientas reales para que dominen los números y la programación desde sus bases.
             </p>
             <a href="https://www.linkedin.com/in/andrerioss/" target="_blank" class="btn-linkedin">💼 Conecta conmigo en LinkedIn</a>
         </section>
@@ -107,87 +120,153 @@
         <h2 class="section-title">Inversión y Promociones</h2>
         <div class="pricing-grid">
             <div class="price-card"><h4 style="color: #0b1a2a; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Sesión Individual</h4><div class="price-amount"><span>S/</span> 34.90</div><p style="color: #444;">Clase personalizada de 1 hora enfocada en objetivos y temas específicos.</p></div>
-            <div class="price-card featured"><h4 style="color:#c5a059; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Dúo Pack Especial</h4><div class="price-amount"><span>S/</span> 59.90</div><p style="color: #444;">Pack de 2 clases. Ideal para refuerzo intensivo antes de prácticas.</p><small style="color:#27ae60; font-weight:bold; font-size: 0.9rem;">Ahorro exclusivo</small></div>
+            <div class="price-card featured"><div class="featured-tag">RECOMENDADO</div><h4 style="color:#c5a059; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Dúo Pack Especial</h4><div class="price-amount"><span>S/</span> 59.90</div><p style="color: #444;">Pack de 2 clases. Ideal para refuerzo intensivo antes de prácticas o exámenes.</p><small style="color:#27ae60; font-weight:bold; font-size: 0.9rem;">Ahorro exclusivo</small></div>
         </div>
 
         <div class="payment-info">
             <h3 style="font-family: 'Playfair Display', serif; color: #0b1a2a; margin-top: 0; font-size: 1.8rem;">Facilidades de Pago</h3>
-            <p style="color: #0b1a2a; font-style: italic; font-weight: 600; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; font-size: 1.1rem;">* Los pagos se hacen después de clases.</p>
+            <div class="pago-despues">* Los pagos se hacen después de clases.</div>
             <div class="payment-methods">
-                <div class="method"><strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">📱 Yape</strong><span style="color: #444;">970549915</span></div>
-                <div class="method"><strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">💵 Efectivo</strong><span style="color: #444;">Pago al finalizar la sesión</span></div>
+                <div class="method"><strong>📱 Yape</strong><span style="color: #444;">970549915</span></div>
+                <div class="method"><strong>💵 Efectivo</strong><span style="color: #444;">Pago al finalizar la sesión</span></div>
             </div>
         </div>
 
         <h2 class="section-title" id="reservar">Reserva tu Horario</h2>
         <section class="booking-section">
-            <div class="booking-steps">
-                
-                <div class="step">
-                    <h3>1. Selecciona tu horario</h3>
-                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Selecciona el bloque de horario de tu preferencia. (Puedes ajustar estos horarios si lo necesitas).</p>
-                    
-                    <div class="calendar-grid">
-                        <div class="day-col">
-                            <div class="day-header">Lun</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Lunes 4:00 PM')">4:00 PM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Lunes 5:00 PM')">5:00 PM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Lunes 6:00 PM')">6:00 PM</div>
-                        </div>
-                        <div class="day-col">
-                            <div class="day-header">Mié</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Miércoles 4:00 PM')">4:00 PM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Miércoles 5:00 PM')">5:00 PM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Miércoles 6:00 PM')">6:00 PM</div>
-                        </div>
-                        <div class="day-col">
-                            <div class="day-header">Vie</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Viernes 4:00 PM')">4:00 PM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Viernes 5:00 PM')">5:00 PM</div>
-                            <div class="time-slot disabled" title="Horario Ocupado">6:00 PM</div>
-                        </div>
-                        <div class="day-col">
-                            <div class="day-header">Sáb</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Sábado 10:00 AM')">10:00 AM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Sábado 11:00 AM')">11:00 AM</div>
-                            <div class="time-slot" onclick="seleccionarHorario(this, 'Sábado 12:00 PM')">12:00 PM</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <h3>2. Ingresa tus datos</h3>
-                    <div class="form-group">
-                        <label>Nombres y Apellidos *</label>
-                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Número de WhatsApp *</label>
-                        <input type="tel" id="telefono" placeholder="Ej. 987654321" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Dirección / Distrito *</label>
-                        <input type="text" id="direccion" placeholder="Ej. Condominio / Calle, Surco" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Torre / Departamento (Opcional)</label>
-                        <input type="text" id="departamento" placeholder="Ej. Torre A, Dpto 402">
-                    </div>
-                    <div class="form-group">
-                        <label>Materia de interés *</label>
-                        <select id="materia">
-                            <option value="Matemáticas">Matemáticas</option>
-                            <option value="Historia">Historia</option>
-                            <option value="Programación (Python)">Programación (Python)</option>
-                        </select>
-                    </div>
-
-                    <p id="mensaje-error">⚠️ Por favor, selecciona un horario e ingresa tu nombre, teléfono y dirección.</p>
-                    
-                    <button class="btn-reservar" onclick="enviarReserva()">Confirmar Reserva</button>
-                </div>
-
+            
+            <h3 class="step-title">1. Selecciona tu horario en la cuadrícula</h3>
+            <p style="font-size: 0.95rem; color: #555; margin-bottom: 20px;">Haz clic en el bloque libre que mejor se acomode a tu disponibilidad. El sistema ya oculta mis horarios de universidad.</p>
+            
+            <div class="calendar-container">
+                <table class="calendar-table" id="tablaHorarios">
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                            <th>Sábado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-label">07:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 07:00">Libre</td><td class="slot" data-h="Miércoles 07:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 07:00">Libre</td><td class="disabled">Ocupado</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">08:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 08:00">Libre</td><td class="slot" data-h="Miércoles 08:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 08:00">Libre</td><td class="disabled">Ocupado</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">09:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 09:00">Libre</td><td class="slot" data-h="Miércoles 09:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 09:00">Libre</td><td class="disabled">Ocupado</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">10:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 10:00">Libre</td><td class="slot" data-h="Miércoles 10:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 10:00">Libre</td><td class="disabled">Ocupado</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">11:00</td>
+                            <td class="slot" data-h="Lunes 11:00">Libre</td><td class="slot" data-h="Martes 11:00">Libre</td><td class="slot" data-h="Miércoles 11:00">Libre</td><td class="slot" data-h="Jueves 11:00">Libre</td><td class="slot" data-h="Viernes 11:00">Libre</td><td class="disabled">Ocupado</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">12:00</td>
+                            <td class="slot" data-h="Lunes 12:00">Libre</td><td class="slot" data-h="Martes 12:00">Libre</td><td class="slot" data-h="Miércoles 12:00">Libre</td><td class="slot" data-h="Jueves 12:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 12:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">13:00</td>
+                            <td class="slot" data-h="Lunes 13:00">Libre</td><td class="slot" data-h="Martes 13:00">Libre</td><td class="slot" data-h="Miércoles 13:00">Libre</td><td class="slot" data-h="Jueves 13:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 13:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">14:00</td>
+                            <td class="slot" data-h="Lunes 14:00">Libre</td><td class="slot" data-h="Martes 14:00">Libre</td><td class="slot" data-h="Miércoles 14:00">Libre</td><td class="slot" data-h="Jueves 14:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 14:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">15:00</td>
+                            <td class="slot" data-h="Lunes 15:00">Libre</td><td class="slot" data-h="Martes 15:00">Libre</td><td class="slot" data-h="Miércoles 15:00">Libre</td><td class="slot" data-h="Jueves 15:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 15:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">16:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 16:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Jueves 16:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 16:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">17:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 17:00">Libre</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 17:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">18:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 18:00">Libre</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 18:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">19:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 19:00">Libre</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="slot" data-h="Sábado 19:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">20:00</td>
+                            <td class="disabled">Ocupado</td><td class="slot" data-h="Martes 20:00">Libre</td><td class="disabled">Ocupado</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 20:00">Libre</td><td class="slot" data-h="Sábado 20:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">21:00</td>
+                            <td class="slot" data-h="Lunes 21:00">Libre</td><td class="slot" data-h="Martes 21:00">Libre</td><td class="slot" data-h="Miércoles 21:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 21:00">Libre</td><td class="slot" data-h="Sábado 21:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">22:00</td>
+                            <td class="slot" data-h="Lunes 22:00">Libre</td><td class="slot" data-h="Martes 22:00">Libre</td><td class="slot" data-h="Miércoles 22:00">Libre</td><td class="disabled">Ocupado</td><td class="slot" data-h="Viernes 22:00">Libre</td><td class="slot" data-h="Sábado 22:00">Libre</td>
+                        </tr>
+                        <tr>
+                            <td class="time-label">23:00</td>
+                            <td class="slot" data-h="Lunes 23:00">Libre</td><td class="slot" data-h="Martes 23:00">Libre</td><td class="slot" data-h="Miércoles 23:00">Libre</td><td class="slot" data-h="Jueves 23:00">Libre</td><td class="slot" data-h="Viernes 23:00">Libre</td><td class="slot" data-h="Sábado 23:00">Libre</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <div id="resumenSeleccion" class="resumen-seleccion">
+                Horario seleccionado: <span id="textoHorario" style="color: #c5a059;">Ninguno</span>
+            </div>
+
+            <h3 class="step-title" style="margin-top: 50px;">2. Ingresa tus datos</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nombres y Apellidos *</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label>Número de WhatsApp *</label>
+                    <input type="tel" id="telefono" placeholder="Ej. 987654321" required>
+                </div>
+                <div class="form-group">
+                    <label>Dirección / Distrito *</label>
+                    <input type="text" id="direccion" placeholder="Ej. Condominio / Calle, Surco" required>
+                </div>
+                <div class="form-group">
+                    <label>Torre / Departamento (Opcional)</label>
+                    <input type="text" id="departamento" placeholder="Ej. Torre A, Dpto 402">
+                </div>
+                <div class="form-group">
+                    <label>Materia de interés *</label>
+                    <select id="materia">
+                        <option value="Matemáticas">Matemáticas</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Programación (Python)">Programación (Python)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Paquete *</label>
+                    <select id="paquete">
+                        <option value="Sesión Individual (S/ 34.90)">Sesión Individual (S/ 34.90)</option>
+                        <option value="Dúo Pack Especial (S/ 59.90)">Dúo Pack Especial (S/ 59.90)</option>
+                    </select>
+                </div>
+            </div>
+
+            <p id="mensaje-error">⚠️ Por favor, selecciona una hora en la cuadrícula y llena tus datos obligatorios.</p>
+            
+            <button class="btn-reservar" onclick="enviarReserva()">Confirmar Reserva por WhatsApp</button>
+            
         </section>
 
     </div>
@@ -200,51 +279,52 @@
     <script>
         let horarioSeleccionado = "";
 
-        // Función para pintar el horario seleccionado en el calendario
-        function seleccionarHorario(elemento, horario) {
-            // Evitar clic en ocupados
-            if(elemento.classList.contains('disabled')) return;
+        // Activar clicks en la tabla
+        document.querySelectorAll('.slot').forEach(celda => {
+            celda.addEventListener('click', function() {
+                // Quitar selección previa
+                document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+                
+                // Marcar nueva selección
+                this.classList.add('selected');
+                horarioSeleccionado = this.getAttribute('data-h');
+                
+                // Mostrar en pantalla
+                document.getElementById('textoHorario').innerText = horarioSeleccionado;
+                document.getElementById('resumenSeleccion').style.display = 'block';
+                document.getElementById('mensaje-error').style.display = 'none';
+            });
+        });
 
-            // Limpiar selecciones previas
-            let slots = document.querySelectorAll('.time-slot');
-            slots.forEach(slot => slot.classList.remove('selected'));
-
-            // Marcar el actual
-            elemento.classList.add('selected');
-            horarioSeleccionado = horario;
-            
-            // Ocultar error si existía
-            document.getElementById('mensaje-error').style.display = 'none';
-        }
-
-        // Función para enviar a WhatsApp
+        // Enviar a WhatsApp
         function enviarReserva() {
             let nombre = document.getElementById('nombre').value.trim();
             let telefono = document.getElementById('telefono').value.trim();
             let direccion = document.getElementById('direccion').value.trim();
             let departamento = document.getElementById('departamento').value.trim();
             let materia = document.getElementById('materia').value;
+            let paquete = document.getElementById('paquete').value;
 
-            // Validación
+            // Validación rigurosa
             if(horarioSeleccionado === "" || nombre === "" || telefono === "" || direccion === "") {
                 document.getElementById('mensaje-error').style.display = 'block';
                 return;
             }
 
-            // Construir el mensaje formateado para WhatsApp
-            let mensaje = `Hola André, quiero reservar una tutoría privada.%0A%0A`;
-            mensaje += `*DATOS DE LA RESERVA:*%0A`;
+            // Crear el mensaje formateado
+            let mensaje = `Hola André, me gustaría reservar una tutoría.%0A%0A`;
+            mensaje += `*DATOS DEL ALUMNO:*%0A`;
             mensaje += `👤 *Nombre:* ${nombre}%0A`;
             mensaje += `📱 *Teléfono:* ${telefono}%0A`;
-            mensaje += `📍 *Dirección:* ${direccion}%0A`;
-            if(departamento !== "") {
-                mensaje += `🏢 *Dpto/Torre:* ${departamento}%0A`;
-            }
+            mensaje += `📍 *Ubicación:* ${direccion}%0A`;
+            if(departamento !== "") { mensaje += `🏢 *Dpto/Torre:* ${departamento}%0A`; }
+            mensaje += `%0A*DETALLES DE LA CLASE:*%0A`;
             mensaje += `📚 *Materia:* ${materia}%0A`;
+            mensaje += `💼 *Paquete:* ${paquete}%0A`;
             mensaje += `🕒 *Horario Elegido:* ${horarioSeleccionado}%0A%0A`;
-            mensaje += `Quedo atento(a) a tu confirmación.`;
+            mensaje += `Quedo atento(a) para coordinar.`;
 
-            // Redirigir a tu número
+            // Enlace directo
             let urlWhatsapp = `https://wa.me/51970549915?text=${mensaje}`;
             window.open(urlWhatsapp, '_blank');
         }
