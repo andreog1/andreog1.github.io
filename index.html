@@ -13,198 +13,68 @@
             --blanco-suave: #f4f7f9;
             --texto-oscuro: #1a1a1a;
         }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--blanco-suave);
-            color: var(--texto-oscuro);
-        }
-        header {
-            background-color: var(--azul-marino);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--dorado);
-        }
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 0;
-            color: var(--dorado-brillante);
-        }
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 0;
-        }
-        .profile-section {
-            text-align: center;
-            margin-bottom: 80px;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--azul-marino);
-        }
-        .profile-tag {
-            display: inline-block;
-            background: var(--dorado);
-            color: var(--azul-marino);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-        .btn-linkedin {
-            display: inline-block;
-            background-color: #0077b5;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-        .btn-linkedin:hover {
-            background-color: #005582;
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--azul-marino);
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--dorado);
-            margin: 15px auto;
-        }
-        .materias-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-bottom: 80px;
-        }
-        .flip-card {
-            background-color: transparent;
-            width: 320px;
-            height: 320px;
-            perspective: 1000px;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-            box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        .flip-card-front {
-            background-color: white;
-            border-bottom: 4px solid var(--dorado);
-        }
-        .flip-card-front h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--azul-marino);
-            margin-bottom: 10px;
-        }
-        .flip-card-back {
-            background-color: var(--azul-marino);
-            color: white;
-            transform: rotateY(180deg);
-            text-align: center;
-        }
-        .pricing-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-        .price-card {
-            background: white;
-            padding: 40px;
-            width: 100%;
-            max-width: 320px;
-            text-align: center;
-            border-radius: 8px;
-            border: 1px solid #e1e1e1;
-        }
-        .price-card.featured {
-            border: 2px solid var(--dorado);
-            background-color: #fffdf9;
-        }
-        .price-amount {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--azul-marino);
-            margin: 15px 0;
-        }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background-color: var(--blanco-suave); color: var(--texto-oscuro); scroll-behavior: smooth; }
+        header { background-color: var(--azul-marino); color: white; padding: 80px 20px; text-align: center; border-bottom: 4px solid var(--dorado); }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; color: var(--dorado-brillante); }
+        header p { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 60px 0; }
+        
+        /* Secciones Base */
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--azul-marino); }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--dorado); margin: 15px auto; }
+        
+        /* Perfil */
+        .profile-section { text-align: center; margin-bottom: 80px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--azul-marino); }
+        .profile-tag { display: inline-block; background: var(--dorado); color: var(--azul-marino); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; margin-bottom: 20px; }
+        .btn-linkedin { display: inline-block; background-color: #0077b5; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: 600; margin-top: 20px; transition: background 0.3s; }
+        .btn-linkedin:hover { background-color: #005582; }
+
+        /* Tarjetas Flip */
+        .materias-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-bottom: 80px; }
+        .flip-card { background-color: transparent; width: 320px; height: 320px; perspective: 1000px; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; box-sizing: border-box; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .flip-card-front { background-color: white; border-bottom: 4px solid var(--dorado); }
+        .flip-card-front h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--azul-marino); margin-bottom: 10px; }
+        .flip-card-back { background-color: var(--azul-marino); color: white; transform: rotateY(180deg); text-align: center; }
+
+        /* Precios y Pagos */
+        .pricing-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-bottom: 40px; }
+        .price-card { background: white; padding: 40px; width: 100%; max-width: 320px; text-align: center; border-radius: 8px; border: 1px solid #e1e1e1; }
+        .price-card.featured { border: 2px solid var(--dorado); background-color: #fffdf9; }
+        .price-amount { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--azul-marino); margin: 15px 0; }
         .price-amount span { font-size: 1.2rem; }
-        .payment-info {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-            border: 1px solid var(--dorado);
-        }
-        .payment-methods {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .method { margin: 10px; }
-        .contacto-final {
-            background-color: var(--azul-marino);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .btn-gold {
-            display: inline-block;
-            background-color: var(--dorado);
-            color: var(--azul-marino);
-            padding: 18px 40px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 4px;
-            margin-top: 30px;
-            text-transform: uppercase;
-        }
+        .payment-info { background: white; padding: 40px; border-radius: 12px; text-align: center; max-width: 600px; margin: 0 auto 80px auto; border: 1px solid var(--dorado); }
+        
+        /* SISTEMA DE RESERVAS INTERACTIVO */
+        .booking-section { background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 60px; border-top: 4px solid var(--dorado); }
+        
+        .booking-steps { display: flex; flex-wrap: wrap; gap: 40px; }
+        .step { flex: 1; min-width: 300px; }
+        .step h3 { font-family: 'Playfair Display', serif; color: var(--azul-marino); font-size: 1.5rem; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        /* Calendario Interactivo */
+        .calendar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+        .day-col { display: flex; flex-direction: column; gap: 8px; }
+        .day-header { text-align: center; font-weight: 600; color: white; background: var(--azul-marino); padding: 8px 0; border-radius: 4px; font-size: 0.9rem; }
+        .time-slot { background: #f0f4f8; border: 1px solid #dcdcdc; padding: 10px 0; text-align: center; cursor: pointer; border-radius: 4px; font-size: 0.9rem; transition: all 0.2s; }
+        .time-slot:hover { background: #e2e8f0; border-color: var(--dorado); }
+        .time-slot.selected { background: var(--dorado); color: var(--azul-marino); font-weight: bold; border-color: var(--dorado); transform: scale(1.05); box-shadow: 0 4px 10px rgba(197, 160, 89, 0.4); }
+        .time-slot.disabled { background: #eee; color: #aaa; cursor: not-allowed; text-decoration: line-through; }
+        
+        /* Formulario */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; color: var(--azul-marino); }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Montserrat', sans-serif; box-sizing: border-box; }
+        .form-group input:focus { border-color: var(--dorado); outline: none; }
+        
+        .btn-reservar { display: block; width: 100%; background: var(--azul-marino); color: white; border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; font-family: 'Montserrat', sans-serif; border-radius: 4px; cursor: pointer; transition: background 0.3s; margin-top: 20px; text-transform: uppercase; }
+        .btn-reservar:hover { background: var(--dorado); color: var(--azul-marino); }
+        
+        #mensaje-error { color: #e74c3c; font-size: 0.9rem; margin-top: 10px; display: none; font-weight: bold; }
+
+        .contacto-final { background-color: var(--azul-marino); color: white; text-align: center; padding: 60px 20px; }
     </style>
 </head>
 <body>
@@ -221,95 +91,163 @@
             <span class="profile-tag">Perfil del Tutor</span>
             <h2 style="font-family: 'Playfair Display', serif; color: #0b1a2a; margin-bottom: 5px;">André Ríos</h2>
             <h3 style="color: #333; margin-top: 0; font-weight: 600; font-size: 1.1rem;">Estudiante de Ingeniería de Sistemas - Universidad de Lima</h3>
-            
             <p style="color: #444; line-height: 1.8; max-width: 800px; margin: 20px auto; font-size: 1.05rem;">
-                Ofrezco tutorías con un enfoque analítico y dinámico. Cuento con una sólida base en desarrollo de software (Python, Java, C) y ciberseguridad, complementada por mi formación en artes escénicas. Esto me ha brindado excelentes habilidades de oratoria y narración, permitiéndome comunicar conceptos complejos matemáticos, históricos y de programación de forma clara, entretenida y cero aburrida. Además, actualmente expando mis conocimientos técnicos en el programa <em>"Code in Place"</em> de la <strong>Universidad de Stanford</strong>.
+                Como estudiante de Ingeniería de Sistemas en la Universidad de Lima, me enfrento a diario con la resolución de problemas complejos. Mi sólida formación en desarrollo de software (Python, Java, C) me ha enseñado exactamente cómo se deben aprender las ciencias: no mediante la memorización, sino desarrollando un pensamiento lógico y estructurado. Mi objetivo es transmitir este método analítico a mis alumnos, dándoles herramientas reales para que dominen los números y la programación desde sus bases.
             </p>
-            
             <a href="https://www.linkedin.com/in/andrerioss/" target="_blank" class="btn-linkedin">💼 Conecta conmigo en LinkedIn</a>
         </section>
         
         <h2 class="section-title">Propuesta Educativa</h2>
         <div class="materias-grid">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>MATEMÁTICAS</h3>
-                        <span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <p style="padding: 0 15px;">Dominio total de Cálculo 1, álgebra y razonamiento matemático. Preparación precisa para exámenes críticos y refuerzo escolar.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>HISTORIA</h3>
-                        <span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <p style="padding: 0 15px;">Análisis profundo mediante técnicas de oratoria y storytelling. Comprensión real del contexto histórico sin memorización vacía.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3>PROGRAMACIÓN</h3>
-                        <span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span>
-                    </div>
-                    <div class="flip-card-back">
-                        <p style="padding: 0 15px;">Introducción a la lógica y algoritmos con Python. Formación tecnológica individualizada de alta demanda basada en estándares universitarios.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>MATEMÁTICAS</h3><span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span></div><div class="flip-card-back"><p style="padding: 0 15px;">Dominio total de Cálculo 1, álgebra y razonamiento matemático. Preparación precisa para exámenes críticos y refuerzo escolar.</p></div></div></div>
+            <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>HISTORIA</h3><span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span></div><div class="flip-card-back"><p style="padding: 0 15px;">Análisis profundo mediante técnicas de oratoria y storytelling. Comprensión real del contexto histórico sin memorización vacía.</p></div></div></div>
+            <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>PROGRAMACIÓN</h3><span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span></div><div class="flip-card-back"><p style="padding: 0 15px;">Introducción a la lógica y algoritmos con Python. Formación tecnológica individualizada de alta demanda basada en estándares universitarios.</p></div></div></div>
         </div>
 
         <h2 class="section-title">Inversión y Promociones</h2>
         <div class="pricing-grid">
-            <div class="price-card">
-                <h4 style="color: #0b1a2a; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Sesión Individual</h4>
-                <div class="price-amount"><span>S/</span> 34.90</div>
-                <p style="color: #444;">Clase personalizada de 1 hora enfocada en objetivos y temas específicos.</p>
-            </div>
-
-            <div class="price-card featured">
-                <h4 style="color:#c5a059; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Dúo Pack Especial</h4>
-                <div class="price-amount"><span>S/</span> 59.90</div>
-                <p style="color: #444;">Pack de 2 clases. Ideal para refuerzo intensivo antes de prácticas o exámenes.</p>
-                <small style="color:#27ae60; font-weight:bold; font-size: 0.9rem;">Ahorro exclusivo</small>
-            </div>
+            <div class="price-card"><h4 style="color: #0b1a2a; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Sesión Individual</h4><div class="price-amount"><span>S/</span> 34.90</div><p style="color: #444;">Clase personalizada de 1 hora enfocada en objetivos y temas específicos.</p></div>
+            <div class="price-card featured"><h4 style="color:#c5a059; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Dúo Pack Especial</h4><div class="price-amount"><span>S/</span> 59.90</div><p style="color: #444;">Pack de 2 clases. Ideal para refuerzo intensivo antes de prácticas.</p><small style="color:#27ae60; font-weight:bold; font-size: 0.9rem;">Ahorro exclusivo</small></div>
         </div>
 
         <div class="payment-info">
             <h3 style="font-family: 'Playfair Display', serif; color: #0b1a2a; margin-top: 0; font-size: 1.8rem;">Facilidades de Pago</h3>
-            
-            <p style="color: #0b1a2a; font-style: italic; font-weight: 600; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; font-size: 1.1rem;">
-                * Los pagos se hacen después de clases.
-            </p>
-
+            <p style="color: #0b1a2a; font-style: italic; font-weight: 600; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; font-size: 1.1rem;">* Los pagos se hacen después de clases.</p>
             <div class="payment-methods">
-                <div class="method">
-                    <strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">📱 Yape</strong>
-                    <span style="color: #444;">970549915</span>
-                </div>
-                <div class="method">
-                    <strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">💵 Efectivo</strong>
-                    <span style="color: #444;">Pago al finalizar la sesión</span>
-                </div>
+                <div class="method"><strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">📱 Yape</strong><span style="color: #444;">970549915</span></div>
+                <div class="method"><strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">💵 Efectivo</strong><span style="color: #444;">Pago al finalizar la sesión</span></div>
             </div>
         </div>
+
+        <h2 class="section-title" id="reservar">Reserva tu Horario</h2>
+        <section class="booking-section">
+            <div class="booking-steps">
+                
+                <div class="step">
+                    <h3>1. Selecciona tu horario</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Selecciona el bloque de horario de tu preferencia. (Puedes ajustar estos horarios si lo necesitas).</p>
+                    
+                    <div class="calendar-grid">
+                        <div class="day-col">
+                            <div class="day-header">Lun</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Lunes 4:00 PM')">4:00 PM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Lunes 5:00 PM')">5:00 PM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Lunes 6:00 PM')">6:00 PM</div>
+                        </div>
+                        <div class="day-col">
+                            <div class="day-header">Mié</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Miércoles 4:00 PM')">4:00 PM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Miércoles 5:00 PM')">5:00 PM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Miércoles 6:00 PM')">6:00 PM</div>
+                        </div>
+                        <div class="day-col">
+                            <div class="day-header">Vie</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Viernes 4:00 PM')">4:00 PM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Viernes 5:00 PM')">5:00 PM</div>
+                            <div class="time-slot disabled" title="Horario Ocupado">6:00 PM</div>
+                        </div>
+                        <div class="day-col">
+                            <div class="day-header">Sáb</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Sábado 10:00 AM')">10:00 AM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Sábado 11:00 AM')">11:00 AM</div>
+                            <div class="time-slot" onclick="seleccionarHorario(this, 'Sábado 12:00 PM')">12:00 PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>2. Ingresa tus datos</h3>
+                    <div class="form-group">
+                        <label>Nombres y Apellidos *</label>
+                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Número de WhatsApp *</label>
+                        <input type="tel" id="telefono" placeholder="Ej. 987654321" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección / Distrito *</label>
+                        <input type="text" id="direccion" placeholder="Ej. Condominio / Calle, Surco" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Torre / Departamento (Opcional)</label>
+                        <input type="text" id="departamento" placeholder="Ej. Torre A, Dpto 402">
+                    </div>
+                    <div class="form-group">
+                        <label>Materia de interés *</label>
+                        <select id="materia">
+                            <option value="Matemáticas">Matemáticas</option>
+                            <option value="Historia">Historia</option>
+                            <option value="Programación (Python)">Programación (Python)</option>
+                        </select>
+                    </div>
+
+                    <p id="mensaje-error">⚠️ Por favor, selecciona un horario e ingresa tu nombre, teléfono y dirección.</p>
+                    
+                    <button class="btn-reservar" onclick="enviarReserva()">Confirmar Reserva</button>
+                </div>
+
+            </div>
+        </section>
 
     </div>
 
     <section class="contacto-final">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0;">Inicie su Formación de Élite</h2>
-        <p style="font-size: 1.1rem; opacity: 0.9;">Reserva tu espacio directamente por WhatsApp.</p>
-        <a href="https://wa.me/51970549915" target="_blank" class="btn-gold">Consultar Disponibilidad</a>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0;">¿Tienes dudas adicionales?</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9;">Escríbeme sin compromiso para resolver cualquier consulta.</p>
     </section>
 
+    <script>
+        let horarioSeleccionado = "";
+
+        // Función para pintar el horario seleccionado en el calendario
+        function seleccionarHorario(elemento, horario) {
+            // Evitar clic en ocupados
+            if(elemento.classList.contains('disabled')) return;
+
+            // Limpiar selecciones previas
+            let slots = document.querySelectorAll('.time-slot');
+            slots.forEach(slot => slot.classList.remove('selected'));
+
+            // Marcar el actual
+            elemento.classList.add('selected');
+            horarioSeleccionado = horario;
+            
+            // Ocultar error si existía
+            document.getElementById('mensaje-error').style.display = 'none';
+        }
+
+        // Función para enviar a WhatsApp
+        function enviarReserva() {
+            let nombre = document.getElementById('nombre').value.trim();
+            let telefono = document.getElementById('telefono').value.trim();
+            let direccion = document.getElementById('direccion').value.trim();
+            let departamento = document.getElementById('departamento').value.trim();
+            let materia = document.getElementById('materia').value;
+
+            // Validación
+            if(horarioSeleccionado === "" || nombre === "" || telefono === "" || direccion === "") {
+                document.getElementById('mensaje-error').style.display = 'block';
+                return;
+            }
+
+            // Construir el mensaje formateado para WhatsApp
+            let mensaje = `Hola André, quiero reservar una tutoría privada.%0A%0A`;
+            mensaje += `*DATOS DE LA RESERVA:*%0A`;
+            mensaje += `👤 *Nombre:* ${nombre}%0A`;
+            mensaje += `📱 *Teléfono:* ${telefono}%0A`;
+            mensaje += `📍 *Dirección:* ${direccion}%0A`;
+            if(departamento !== "") {
+                mensaje += `🏢 *Dpto/Torre:* ${departamento}%0A`;
+            }
+            mensaje += `📚 *Materia:* ${materia}%0A`;
+            mensaje += `🕒 *Horario Elegido:* ${horarioSeleccionado}%0A%0A`;
+            mensaje += `Quedo atento(a) a tu confirmación.`;
+
+            // Redirigir a tu número
+            let urlWhatsapp = `https://wa.me/51970549915?text=${mensaje}`;
+            window.open(urlWhatsapp, '_blank');
+        }
+    </script>
 </body>
 </html>
