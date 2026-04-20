@@ -10,7 +10,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f0f4f8; /* Un fondo un poco más moderno */
+            background-color: #f0f4f8;
             color: #333;
         }
         header {
@@ -28,7 +28,7 @@
         h2.section-title {
             text-align: center;
             color: #2c3e50;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-size: 2rem;
         }
         
@@ -36,55 +36,103 @@
         .materias-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
             justify-content: center;
         }
 
-        /* Estilos de las Tarjetas con Movimiento Fluido */
-        .materia-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 25px;
+        /* --- EFECTO FLIP CARD (Tarjetas que giran) --- */
+        .flip-card {
+            background-color: transparent;
             width: 100%;
-            max-width: 300px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-top: 5px solid;
-            /* Aquí está la magia de la animación fluida */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            max-width: 300px;
+            height: 280px; /* Altura fija para que el giro se vea bien */
+            perspective: 1000px; /* Crea el efecto 3D */
         }
 
-        /* Efecto Hover (cuando pasas el mouse) */
-        .materia-card:hover {
-            transform: translateY(-10px); /* Levanta la tarjeta hacia arriba */
-            box-shadow: 0 15px 25px rgba(0,0,0,0.15); /* Sombra más grande y difuminada */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
-        .materia-card h3 {
-            margin-top: 0;
-            font-size: 1.4rem;
+        /* Al pasar el mouse, gira 180 grados */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Oculta la parte trasera en Safari */
+            backface-visibility: hidden; /* Oculta la cara que no está de frente */
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Frente de la tarjeta */
+        .flip-card-front {
+            background-color: #ffffff;
+            color: #333;
+            border-top: 6px solid;
+        }
+
+        .flip-card-front h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .ver-detalles {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Parte trasera de la tarjeta */
+        .flip-card-back {
+            color: white;
+            transform: rotateY(180deg); /* Ya está girada por defecto, esperando revelarse */
+            font-size: 0.95rem;
         }
 
         /* Colores específicos por materia */
-        .math { border-color: #e74c3c; }
-        .math h3 { color: #e74c3c; }
+        .math-front { border-color: #e74c3c; }
+        .math-front h3 { color: #e74c3c; }
+        .math-back { background-color: #e74c3c; }
         
-        .hist { border-color: #f1c40f; }
-        .hist h3 { color: #d4ac0d; }
+        .hist-front { border-color: #f1c40f; }
+        .hist-front h3 { color: #d4ac0d; }
+        .hist-back { background-color: #f1c40f; color: #333; } /* Texto oscuro para contraste en amarillo */
         
-        .py { border-color: #3498db; }
-        .py h3 { color: #3498db; }
+        .py-front { border-color: #3498db; }
+        .py-front h3 { color: #3498db; }
+        .py-back { background-color: #3498db; }
         
         /* Sección de Contacto */
         .contacto {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             padding: 40px 20px;
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* Botón de WhatsApp animado */
         .btn-whatsapp {
             display: inline-block;
             background-color: #25D366; 
@@ -100,7 +148,7 @@
 
         .btn-whatsapp:hover {
             background-color: #128C7E;
-            transform: scale(1.05); /* Efecto de crecimiento al pasar el mouse */
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -115,20 +163,44 @@
         <h2 class="section-title">Materias Disponibles</h2>
 
         <div class="materias-grid">
-            <div class="materia-card math">
-                <h3>📐 Matemáticas</h3>
-                <p>Resolución de problemas, refuerzo escolar y preparación avanzada. Explicaciones paso a paso, desde conceptos básicos hasta nivel universitario, como Cálculo 1.</p>
+            
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front math-front">
+                        <h3>MATEMÁTICAS</h3>
+                        <p class="ver-detalles">Ver detalles ↪</p>
+                    </div>
+                    <div class="flip-card-back math-back">
+                        <p>Resolución de problemas, refuerzo escolar y preparación avanzada. Explicaciones paso a paso, desde conceptos básicos hasta nivel universitario, como Cálculo 1.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="materia-card hist">
-                <h3>📜 Historia</h3>
-                <p>Olvídate de memorizar fechas aburridas. Aprende sobre los eventos del pasado a través de técnicas de narración, dándole vida a los relatos para comprender realmente el contexto.</p>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front hist-front">
+                        <h3>HISTORIA</h3>
+                        <p class="ver-detalles">Ver detalles ↪</p>
+                    </div>
+                    <div class="flip-card-back hist-back">
+                        <p>Olvídate de memorizar fechas aburridas. Aprende sobre los eventos del pasado a través de técnicas de narración, dándole vida a los relatos para comprender realmente el contexto.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="materia-card py">
-                <h3>💻 Programación (Python)</h3>
-                <p>Iniciación a la lógica de programación. Aprende las bases, estructuras, bucles y cómo empezar a escribir tus propias líneas de código con uno de los lenguajes más demandados.</p>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front py-front">
+                        <h3>PROGRAMACIÓN</h3>
+                        <h4 style="margin:0; color:#7f8c8d;">(PYTHON)</h4>
+                        <p class="ver-detalles">Ver detalles ↪</p>
+                    </div>
+                    <div class="flip-card-back py-back">
+                        <p>Iniciación a la lógica de programación. Aprende las bases, estructuras, bucles y cómo empezar a escribir tus propias líneas de código con uno de los lenguajes más demandados.</p>
+                    </div>
+                </div>
             </div>
+
         </div>
 
         <div class="contacto">
