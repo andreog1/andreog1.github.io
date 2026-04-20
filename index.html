@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorías - André</title>
+    <title>André | Tutoría Privada de Élite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --azul-marino: #0b1a2a;
+            --dorado: #c5a059;
+            --dorado-brillante: #e5c185;
+            --blanco-suave: #f4f7f9;
+            --texto-oscuro: #1a1a1a;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f4f8;
-            color: #333;
+            background-color: var(--blanco-suave);
+            color: var(--texto-oscuro);
+            scroll-behavior: smooth;
         }
+
+        /* Hero / Header */
         header {
-            background-color: #2c3e50;
-            color: #ffffff;
-            padding: 3rem 0;
+            background-color: var(--azul-marino);
+            color: white;
+            padding: 80px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--dorado);
         }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+            color: var(--dorado-brillante);
+        }
+
+        header p {
+            font-weight: 300;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
         .container {
             width: 90%;
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 0;
         }
-        h2.section-title {
+
+        /* Sección Perfil */
+        .profile-section {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 40px;
-            font-size: 2rem;
+            margin-bottom: 80px;
         }
-        
-        /* Contenedor Flexbox para las Tarjetas */
+
+        .profile-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--azul-marino);
+        }
+
+        .profile-tag {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--azul-marino);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Grid de Servicios (Flip Cards) */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--dorado);
+            margin: 15px auto;
+        }
+
         .materias-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
+            margin-bottom: 80px;
         }
 
-        /* --- EFECTO FLIP CARD (Tarjetas que giran) --- */
         .flip-card {
             background-color: transparent;
-            width: 100%;
-            max-width: 300px;
-            height: 280px; /* Altura fija para que el giro se vea bien */
-            perspective: 1000px; /* Crea el efecto 3D */
+            width: 320px;
+            height: 350px;
+            perspective: 1000px;
         }
 
         .flip-card-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
-        /* Al pasar el mouse, gira 180 grados */
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
@@ -69,148 +129,236 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden; /* Oculta la parte trasera en Safari */
-            backface-visibility: hidden; /* Oculta la cara que no está de frente */
-            border-radius: 12px;
+            backface-visibility: hidden;
+            border-radius: 5px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px;
             box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        /* Frente de la tarjeta */
         .flip-card-front {
-            background-color: #ffffff;
-            color: #333;
-            border-top: 6px solid;
+            background-color: white;
+            border-bottom: 4px solid var(--dorado);
         }
 
         .flip-card-front h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--azul-marino);
+        }
+
+        .flip-card-back {
+            background-color: var(--azul-marino);
+            color: white;
+            transform: rotateY(180deg);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Sección de Planes / Precios */
+        .pricing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .price-card {
+            background: white;
+            border: 1px solid #e1e1e1;
+            padding: 40px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--dorado);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--dorado);
+            position: relative;
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dorado);
+            color: var(--azul-marino);
+            padding: 5px 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        .price-card h4 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--azul-marino);
+            text-transform: uppercase;
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin: 20px 0;
+            color: var(--azul-marino);
+        }
+
+        .price-amount span { font-size: 1rem; color: #777; }
+
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .price-features li { margin-bottom: 10px; }
+
+        /* Contacto */
+        .contacto-final {
+            background-color: var(--azul-marino);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background-color: var(--dorado);
+            color: var(--azul-marino);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-top: 30px;
+            transition: background 0.3s, letter-spacing 0.3s;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .ver-detalles {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-top: 15px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .btn-gold:hover {
+            background-color: var(--dorado-brillante);
+            letter-spacing: 2px;
         }
 
-        /* Parte trasera de la tarjeta */
-        .flip-card-back {
-            color: white;
-            transform: rotateY(180deg); /* Ya está girada por defecto, esperando revelarse */
-            font-size: 0.95rem;
-        }
-
-        /* Colores específicos por materia */
-        .math-front { border-color: #e74c3c; }
-        .math-front h3 { color: #e74c3c; }
-        .math-back { background-color: #e74c3c; }
-        
-        .hist-front { border-color: #f1c40f; }
-        .hist-front h3 { color: #d4ac0d; }
-        .hist-back { background-color: #f1c40f; color: #333; } /* Texto oscuro para contraste en amarillo */
-        
-        .py-front { border-color: #3498db; }
-        .py-front h3 { color: #3498db; }
-        .py-back { background-color: #3498db; }
-        
-        /* Sección de Contacto */
-        .contacto {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #25D366; 
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 15px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .flip-card { width: 100%; height: 300px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Tutorías en el Condominio</h1>
-        <p>Aprende de forma dinámica, clara y a tu propio ritmo.</p>
+        <p>EXCELENCIA ACADÉMICA A DOMICILIO</p>
+        <h1>André Ríos</h1>
+        <p>Monterrico, Surco</p>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Materias Disponibles</h2>
+        
+        <section class="profile-section">
+            <span class="profile-tag">Perfil Académico</span>
+            <h2>Ingeniería de Sistemas - Universidad de Lima</h2>
+            <p style="max-width: 700px; margin: 20px auto; color: #666; font-weight: 300;">
+                Ofrezco un servicio de tutoría personalizada diseñado para estudiantes que buscan no solo aprobar, sino dominar las materias con un enfoque analítico y dinámico.
+            </p>
+        </section>
 
+        <h2 class="section-title">Servicios Exclusivos</h2>
         <div class="materias-grid">
             
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front math-front">
-                        <h3>MATEMÁTICAS</h3>
-                        <p class="ver-detalles">Ver detalles ↪</p>
+                    <div class="flip-card-front">
+                        <h3>Matemáticas</h3>
+                        <span style="color:var(--dorado)">Nivel Pre y Universitario</span>
                     </div>
-                    <div class="flip-card-back math-back">
-                        <p>Resolución de problemas, refuerzo escolar y preparación avanzada. Explicaciones paso a paso, desde conceptos básicos hasta nivel universitario, como Cálculo 1.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front hist-front">
-                        <h3>HISTORIA</h3>
-                        <p class="ver-detalles">Ver detalles ↪</p>
-                    </div>
-                    <div class="flip-card-back hist-back">
-                        <p>Olvídate de memorizar fechas aburridas. Aprende sobre los eventos del pasado a través de técnicas de narración, dándole vida a los relatos para comprender realmente el contexto.</p>
+                    <div class="flip-card-back">
+                        <p>Dominio total de Cálculo 1, álgebra y razonamiento matemático. Explicaciones de alta precisión para asegurar resultados en exámenes críticos.</p>
                     </div>
                 </div>
             </div>
 
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front py-front">
-                        <h3>PROGRAMACIÓN</h3>
-                        <h4 style="margin:0; color:#7f8c8d;">(PYTHON)</h4>
-                        <p class="ver-detalles">Ver detalles ↪</p>
+                    <div class="flip-card-front">
+                        <h3>Historia</h3>
+                        <span style="color:var(--dorado)">Narrativa Dinámica</span>
                     </div>
-                    <div class="flip-card-back py-back">
-                        <p>Iniciación a la lógica de programación. Aprende las bases, estructuras, bucles y cómo empezar a escribir tus propias líneas de código con uno de los lenguajes más demandados.</p>
+                    <div class="flip-card-back">
+                        <p>Comprensión profunda de eventos históricos mediante técnicas de oratoria y storytelling. Adiós a la memorización vacía, bienvenido el análisis de contexto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Programación</h3>
+                        <span style="color:var(--dorado)">Lenguaje Python</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Introducción a la lógica de programación y desarrollo de algoritmos. Preparación para el futuro tecnológico con tutoría individualizada de alta demanda.</p>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <div class="contacto">
-            <h2>¿Empezamos?</h2>
-            <p>Contáctame para consultar horarios disponibles y organizar nuestra primera sesión.</p>
-            <a href="https://wa.me/51970549915" target="_blank" class="btn-whatsapp">
-                📱 Escríbeme al WhatsApp (970549915)
-            </a>
+        <h2 class="section-title">Planes Mensuales</h2>
+        <div class="pricing-grid">
+            
+            <div class="price-card">
+                <h4>Plan Essential</h4>
+                <div class="price-amount">S/ 180<span>/mes</span></div>
+                <ul class="price-features">
+                    <li>4 Horas de clase al mes</li>
+                    <li>Sesiones de 1 hora semanal</li>
+                    <li>Material de apoyo digital</li>
+                    <li>Soporte vía WhatsApp</li>
+                </ul>
+            </div>
+
+            <div class="price-card featured">
+                <div class="featured-tag">RECOMENDADO</div>
+                <h4>Plan Intensivo</h4>
+                <div class="price-amount">S/ 340<span>/mes</span></div>
+                <ul class="price-features">
+                    <li>8 Horas de clase al mes</li>
+                    <li>2 Sesiones de 1 hora semanal</li>
+                    <li>Seguimiento de progreso personalizado</li>
+                    <li>Preparación especial para exámenes</li>
+                </ul>
+            </div>
+
         </div>
+
     </div>
+
+    <section class="contacto-final">
+        <h2>Inicie su Formación de Élite</h2>
+        <p>Consulte disponibilidad de horarios para sesiones privadas en el condominio.</p>
+        <a href="https://wa.me/51970549915" target="_blank" class="btn-gold">Reservar Sesión de Diagnóstico</a>
+    </section>
 
 </body>
 </html>
