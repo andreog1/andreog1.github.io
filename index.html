@@ -77,11 +77,44 @@
         .featured-tag {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
             background: var(--dorado); color: var(--azul-marino); padding: 5px 15px;
-            font-size: 0.8rem; font-weight: 600; border-radius: 20px; letter-spacing: 1px;
+            font-size: 0.8rem; font-weight: 600; border-radius: 20px; letter-spacing: 1px; z-index: 2;
+        }
+
+        /* ESTILOS DE PRECIOS Y DESCUENTOS */
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: -10px;
+            background: var(--rojo-error);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 3px;
+            transform: rotate(10deg);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            z-index: 10;
         }
 
         .price-card h4 { font-size: 1.3rem; margin: 0; color: var(--azul-marino); text-transform: uppercase; }
-        .price-amount { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--azul-marino); margin: 15px 0; }
+        
+        .old-price {
+            font-size: 1.2rem;
+            color: #95a5a6;
+            text-decoration: line-through;
+            margin-top: 15px;
+            display: block;
+            margin-bottom: -15px;
+            font-weight: 600;
+        }
+
+        .price-amount { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.2rem; 
+            color: var(--azul-marino); 
+            margin: 15px 0; 
+        }
+        
         .price-amount span { font-size: 1.2rem; }
         .price-card p { font-size: 0.95rem; color: #555; margin-bottom: 20px; }
 
@@ -96,7 +129,7 @@
         /* Módulo de Reserva Interactivo */
         .reserva-module {
             background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--dorado); margin-bottom: 60px; display: none; /* Se oculta hasta elegir plan */
+            border-top: 5px solid var(--dorado); margin-bottom: 60px; display: none;
         }
 
         .reserva-header { text-align: center; margin-bottom: 30px; }
@@ -117,7 +150,6 @@
         .btn-add:hover { background-color: var(--dorado-brillante); }
         .btn-add:disabled { background-color: #ccc; cursor: not-allowed; }
 
-        /* Lista de horarios elegidos */
         .slots-list { margin-top: 20px; }
         .slot-item {
             background: #f8f9fa; border-left: 4px solid var(--azul-marino); padding: 15px;
@@ -162,6 +194,7 @@
             
             <div class="price-card">
                 <h4>Sesión Única</h4>
+                <span class="old-price">S/ 65.00</span>
                 <div class="price-amount"><span>S/</span> 45.00</div>
                 <p>1 Clase (1 hora y 30 mins). Ideal para dudas específicas o apoyo en tareas.</p>
                 <button class="btn-select" onclick="seleccionarPlan('Sesión Única', 45, 1, this)">Seleccionar Plan</button>
@@ -169,14 +202,17 @@
 
             <div class="price-card featured">
                 <div class="featured-tag">POPULAR</div>
+                <div class="discount-badge">-30% OFF</div>
                 <h4>Dúo Pack</h4>
+                <span class="old-price">S/ 115.00</span>
                 <div class="price-amount"><span>S/</span> 80.00</div>
-                <p>2 Clases (3 horas total). Ahorra S/ 10. Perfecto para preparar un examen.</p>
+                <p>2 Clases (3 horas total). Perfecto para preparar un examen con anticipación.</p>
                 <button class="btn-select" onclick="seleccionarPlan('Dúo Pack', 80, 2, this)">Seleccionar Plan</button>
             </div>
 
             <div class="price-card">
                 <h4>Pack Exámenes</h4>
+                <span class="old-price">S/ 160.00</span>
                 <div class="price-amount"><span>S/</span> 115.00</div>
                 <p>3 Clases (4.5 horas total). Cobertura completa de los temas antes de parciales.</p>
                 <button class="btn-select" onclick="seleccionarPlan('Pack Exámenes', 115, 3, this)">Seleccionar Plan</button>
@@ -184,6 +220,7 @@
 
             <div class="price-card">
                 <h4>Mensual Básico</h4>
+                <span class="old-price">S/ 200.00</span>
                 <div class="price-amount"><span>S/</span> 150.00</div>
                 <p>4 Clases (1 por semana todo el mes). Mantenimiento y seguimiento continuo.</p>
                 <button class="btn-select" onclick="seleccionarPlan('Mensual Básico', 150, 4, this)">Seleccionar Plan</button>
@@ -191,7 +228,9 @@
 
             <div class="price-card featured">
                 <div class="featured-tag">MEJOR VALOR</div>
+                <div class="discount-badge">PROMO LIMITADA</div>
                 <h4>Mensual Intensivo</h4>
+                <span class="old-price">S/ 380.00</span>
                 <div class="price-amount"><span>S/</span> 280.00</div>
                 <p>8 Clases (2 por semana todo el mes). Domina la materia desde cero.</p>
                 <button class="btn-select" onclick="seleccionarPlan('Mensual Intensivo', 280, 8, this)">Seleccionar Plan</button>
@@ -199,6 +238,7 @@
 
             <div class="price-card">
                 <h4>Élite Trimestral</h4>
+                <span class="old-price">S/ 520.00</span>
                 <div class="price-amount"><span>S/</span> 390.00</div>
                 <p>12 Clases. Repártelas en tus horarios preferidos a lo largo de 3 meses.</p>
                 <button class="btn-select" onclick="seleccionarPlan('Élite Trimestral', 390, 12, this)">Seleccionar Plan</button>
@@ -235,6 +275,8 @@
 
                 <select id="sel-hora">
                     <option value="" disabled selected>Elige la Hora</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
                     <option value="3:00 PM">3:00 PM</option>
                     <option value="4:30 PM">4:30 PM</option>
                     <option value="6:00 PM">6:00 PM</option>
@@ -244,11 +286,10 @@
                 <button class="btn-add" id="btn-agregar" onclick="agregarHorario()">Añadir Horario</button>
             </div>
 
-            <div class="slots-list" id="lista-horarios">
-                </div>
+            <div class="slots-list" id="lista-horarios"></div>
 
             <div class="checkout-container" id="checkout-box">
-                <a href="#" id="enlace-whatsapp" class="btn-whatsapp" target="_blank">📱 Confirmar y Reservar por WhatsApp</a>
+                <a href="#" id="enlace-whatsapp" class="btn-whatsapp" target="_blank">📱 Confirmar Promoción por WhatsApp</a>
             </div>
         </div>
 
@@ -277,22 +318,17 @@
         const numeroWhatsApp = "51970549915";
 
         function seleccionarPlan(nombre, precio, slots, btnElement) {
-            // Reiniciar datos
             planActual = { nombre: nombre, precio: precio, maxSlots: slots };
             horariosElegidos = [];
             
-            // Efecto visual en botones
             let botones = document.querySelectorAll('.btn-select');
             botones.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
 
-            // Mostrar el módulo de reserva y actualizar textos
             document.getElementById('reserva-modulo').style.display = 'block';
-            document.getElementById('plan-desc').innerText = `Plan seleccionado: ${nombre} (S/ ${precio}.00)`;
+            document.getElementById('plan-desc').innerText = `Promoción seleccionada: ${nombre} (S/ ${precio}.00)`;
             
             actualizarVista();
-            
-            // Hacer scroll suave hacia el calendario
             document.getElementById('reserva-modulo').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
@@ -312,6 +348,13 @@
             }
 
             let textoHorario = `${sem} - ${dia} a las ${hora}`;
+
+            // NUEVA VALIDACIÓN: Evitar selección duplicada
+            if (horariosElegidos.includes(textoHorario)) {
+                alert("⚠️ Ya has seleccionado este horario exacto. Por favor, elige un día o una hora diferente.");
+                return;
+            }
+
             horariosElegidos.push(textoHorario);
             actualizarVista();
         }
@@ -322,15 +365,12 @@
         }
 
         function actualizarVista() {
-            // Actualizar contador
             let restantes = planActual.maxSlots - horariosElegidos.length;
             document.getElementById('slots-counter').innerText = 
                 restantes > 0 ? `Clases por agendar: ${restantes}` : `¡Plan completado! Horarios listos.`;
             
-            // Bloquear botón si ya se llenó
             document.getElementById('btn-agregar').disabled = restantes === 0;
 
-            // Renderizar la lista
             let listaHtml = "";
             horariosElegidos.forEach((h, index) => {
                 listaHtml += `<div class="slot-item">
@@ -340,7 +380,6 @@
             });
             document.getElementById('lista-horarios').innerHTML = listaHtml;
 
-            // Mostrar u ocultar el botón de WhatsApp
             let checkoutBox = document.getElementById('checkout-box');
             if (horariosElegidos.length === planActual.maxSlots && planActual.maxSlots > 0) {
                 checkoutBox.style.display = 'block';
@@ -351,16 +390,16 @@
         }
 
         function generarEnlaceWhatsApp() {
-            let mensaje = `Hola André, quiero reservar tutorías.\n\n`;
-            mensaje += `📘 *Plan:* ${planActual.nombre}\n`;
-            mensaje += `💰 *Precio:* S/ ${planActual.precio}.00\n\n`;
+            let mensaje = `Hola André, vengo desde la página web y quiero aprovechar una promoción de tutorías.\n\n`;
+            mensaje += `📘 *Promoción:* ${planActual.nombre}\n`;
+            mensaje += `💰 *Precio de Oferta:* S/ ${planActual.precio}.00\n\n`;
             mensaje += `🗓️ *Mis Horarios Elegidos:*\n`;
             
             horariosElegidos.forEach((h, i) => {
                 mensaje += `${i + 1}. ${h}\n`;
             });
 
-            mensaje += `\nEntiendo que el pago se realiza después de las clases vía Yape o BCP. ¿Tienes disponibilidad para confirmar?`;
+            mensaje += `\nConfirmo que el pago lo haré después de las clases. ¿Puedes confirmarme los horarios?`;
 
             let url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
             document.getElementById('enlace-whatsapp').href = url;
