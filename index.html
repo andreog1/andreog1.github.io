@@ -70,7 +70,7 @@
         .section-title span { color: var(--dorado); font-size: 1.5rem; display: block; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--dorado); margin: 15px auto; }
 
-        /* Paso 1: Especialidades */
+        /* Paso 1: Especialidades (AJUSTADO PARA QUE SE VEAN PERFECTAS) */
         .areas-grid {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px;
         }
@@ -78,18 +78,21 @@
         .area-card {
             background: white; padding: 40px; border-radius: 8px; border-bottom: 4px solid var(--dorado);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s;
-            flex: 1 1 300px; max-width: 350px; display: flex; flex-direction: column; justify-content: space-between;
+            flex: 1 1 300px; max-width: 350px; display: flex; flex-direction: column;
         }
         .area-card:hover { transform: translateY(-5px); }
 
-        .area-card h3 { font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 1.8rem; margin-top: 0; }
-        .area-card ul { list-style: none; padding: 0; text-align: left; margin: 20px 0; color: #555; flex-grow: 1; }
+        .area-card h3 { font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; }
+        
+        .area-card ul { list-style: none; padding: 0; text-align: left; margin: 0 0 20px 0; color: #555; flex-grow: 1; }
         .area-card li { margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
         .area-card li::before { content: '•'; color: var(--dorado); font-weight: bold; }
+        
+        .area-card-texto { color:#666; margin: 0 0 20px 0; text-align: left; flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
 
         .btn-materia {
             background-color: var(--dorado); color: var(--verde-esmeralda); border: none; padding: 12px 25px;
-            font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.3s; text-transform: uppercase; width: 100%; margin-top: 15px; text-decoration: none; display: block;
+            font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.3s; text-transform: uppercase; width: 100%; text-decoration: none; display: block; box-sizing: border-box; margin-top: auto;
         }
         .btn-materia:hover { background-color: var(--dorado-brillante); }
 
@@ -168,9 +171,19 @@
         }
         .btn-whatsapp-final:hover { transform: scale(1.05); }
 
+        /* Pagos y Contacto Final */
         .payment-info {
             background: white; padding: 40px; border-radius: 12px; text-align: center;
             max-width: 600px; margin: 0 auto 40px auto; border: 1px solid var(--dorado);
+        }
+        .pago-despues { color: var(--verde-esmeralda); font-style: italic; font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; }
+        .payment-methods { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .method { margin: 10px; }
+        .method strong { color: var(--verde-esmeralda); display: block; font-size: 1.1rem; }
+
+        .contacto-final {
+            background-color: white; padding: 50px 40px; border-radius: 12px; text-align: center;
+            max-width: 800px; margin: 0 auto 60px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-bottom: 5px solid var(--verde-esmeralda);
         }
     </style>
 </head>
@@ -217,10 +230,10 @@
                 <button class="btn-materia" onclick="cargarPlanes('Python')">Ver Promociones</button>
             </div>
 
-            <div class="area-card" style="border-bottom-color: #bdc3c7;">
-                <h3 style="color: #34495e;">Otros Cursos</h3>
-                <p style="color:#666; margin-top:20px; text-align: left;">Si deseas asesoría para Física, Química o tareas específicas...</p>
-                <a href="https://wa.me/51970549915" target="_blank" class="btn-materia" style="background-color: transparent; border: 2px solid var(--verde-esmeralda); color: var(--verde-esmeralda);">Preguntar por WhatsApp</a>
+            <div class="area-card">
+                <h3>Otros Cursos</h3>
+                <p class="area-card-texto">Si deseas asesoría para Física, Química, tareas específicas o cualquier otra materia que no esté en la lista, consulta disponibilidad directa.</p>
+                <a href="https://wa.me/51970549915" target="_blank" class="btn-materia">Preguntar por WhatsApp</a>
             </div>
         </div>
 
@@ -252,6 +265,13 @@
                 <div class="method"><strong>💵 Efectivo</strong><span>Pago presencial</span></div>
             </div>
         </div>
+
+        <div class="contacto-final">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 2rem; margin-top: 0; margin-bottom: 10px;">¿Más preguntas o contacto?</h3>
+            <p style="color: #555; font-size: 1.1rem; margin-bottom: 30px;">Si tienes alguna duda sobre la metodología, deseas ajustar un horario que no aparece disponible, o prefieres coordinar directamente conmigo, no dudes en escribirme.</p>
+            <a href="https://wa.me/51970549915" target="_blank" class="btn-materia" style="display: inline-block; width: auto; padding: 15px 40px; font-size: 1.1rem; margin-top: 0;">📲 Escríbeme a WhatsApp</a>
+        </div>
+
     </div>
 
     <script>
@@ -270,11 +290,10 @@
             ]
         };
 
-        // CONFIGURACIÓN DE BLOQUES: 8 AM a 11 PM en intervalos de 1.5h
         const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
         const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
         
-        // HORARIOS BLOQUEADOS: Cursos, trayectos, y 11pm (solo Viernes y Domingo)
+        // HORARIOS BLOQUEADOS
         const horariosOcupados = [
             "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
             "Mar - 09:30 AM", "Mar - 11:00 AM", "Mar - 12:30 PM",
