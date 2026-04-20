@@ -23,7 +23,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Hero / Header */
         header {
             background-color: var(--azul-marino);
             color: white;
@@ -55,37 +54,11 @@
             padding: 60px 0;
         }
 
-        /* Sección Perfil */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .profile-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--azul-marino);
-        }
-
-        .profile-tag {
-            display: inline-block;
-            background: var(--dorado);
-            color: var(--azul-marino);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        /* Grid de Servicios (Flip Cards) */
         .section-title {
             font-family: 'Playfair Display', serif;
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
-            position: relative;
         }
 
         .section-title::after {
@@ -97,6 +70,7 @@
             margin: 15px auto;
         }
 
+        /* Grid de Servicios */
         .materias-grid {
             display: flex;
             flex-wrap: wrap;
@@ -108,7 +82,7 @@
         .flip-card {
             background-color: transparent;
             width: 320px;
-            height: 350px;
+            height: 320px;
             perspective: 1000px;
         }
 
@@ -149,7 +123,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
             color: var(--azul-marino);
         }
 
@@ -158,80 +131,79 @@
             color: white;
             transform: rotateY(180deg);
             font-weight: 300;
-            line-height: 1.8;
             text-align: center;
         }
 
-        /* Sección de Planes / Precios */
+        /* Precios */
         .pricing-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             justify-content: center;
+            margin-bottom: 40px; /* Reducido un poco para acercar a los pagos */
         }
 
         .price-card {
             background: white;
-            border: 1px solid #e1e1e1;
             padding: 40px;
             width: 100%;
-            max-width: 350px;
+            max-width: 320px;
             text-align: center;
             border-radius: 8px;
-            transition: all 0.4s ease;
+            border: 1px solid #e1e1e1;
+            transition: transform 0.3s;
         }
 
-        .price-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--dorado);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
+        .price-card:hover { transform: translateY(-10px); }
 
         .price-card.featured {
             border: 2px solid var(--dorado);
-            position: relative;
-        }
-
-        .featured-tag {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dorado);
-            color: var(--azul-marino);
-            padding: 5px 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 20px;
-        }
-
-        .price-card h4 {
-            font-size: 1.2rem;
-            margin: 0;
-            color: var(--azul-marino);
-            text-transform: uppercase;
+            background-color: #fffdf9;
         }
 
         .price-amount {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 20px 0;
+            font-size: 3.5rem;
             color: var(--azul-marino);
+            margin: 15px 0;
         }
 
-        .price-amount span { font-size: 1rem; color: #777; }
+        .price-amount span { font-size: 1.2rem; }
 
-        .price-features {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            color: #555;
+        /* Métodos de Pago */
+        .payment-info {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--dorado);
         }
 
-        .price-features li { margin-bottom: 10px; }
+        /* ESTILO PARA EL TEXTO DE PAGO DESPUÉS DE CLASES */
+        .pago-despues {
+            color: var(--azul-marino);
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
 
-        /* Contacto */
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .method { margin: 10px; }
+        .method strong { color: var(--azul-marino); display: block; font-size: 1.1rem; }
+
+        /* Botón Final */
         .contacto-final {
             background-color: var(--azul-marino);
             color: white;
@@ -249,19 +221,12 @@
             font-weight: 600;
             border-radius: 4px;
             margin-top: 30px;
-            transition: background 0.3s, letter-spacing 0.3s;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            transition: background 0.3s;
         }
-
+        
         .btn-gold:hover {
             background-color: var(--dorado-brillante);
-            letter-spacing: 2px;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .flip-card { width: 100%; height: 300px; }
         }
     </style>
 </head>
@@ -275,25 +240,16 @@
 
     <div class="container">
         
-        <section class="profile-section">
-            <span class="profile-tag">Perfil Académico</span>
-            <h2>Ingeniería de Sistemas - Universidad de Lima</h2>
-            <p style="max-width: 700px; margin: 20px auto; color: #666; font-weight: 300;">
-                Ofrezco un servicio de tutoría personalizada diseñado para estudiantes que buscan no solo aprobar, sino dominar las materias con un enfoque analítico y dinámico.
-            </p>
-        </section>
-
-        <h2 class="section-title">Servicios Exclusivos</h2>
+        <h2 class="section-title">Propuesta Educativa</h2>
         <div class="materias-grid">
-            
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Matemáticas</h3>
-                        <span style="color:var(--dorado)">Nivel Pre y Universitario</span>
+                        <h3>MATEMÁTICAS</h3>
+                        <span style="color:var(--dorado)">Ver detalles ↪</span>
                     </div>
                     <div class="flip-card-back">
-                        <p>Dominio total de Cálculo 1, álgebra y razonamiento matemático. Explicaciones de alta precisión para asegurar resultados en exámenes críticos.</p>
+                        <p>Dominio total de Cálculo 1, álgebra y razonamiento matemático. Preparación precisa para exámenes críticos.</p>
                     </div>
                 </div>
             </div>
@@ -301,11 +257,11 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Historia</h3>
-                        <span style="color:var(--dorado)">Narrativa Dinámica</span>
+                        <h3>HISTORIA</h3>
+                        <span style="color:var(--dorado)">Ver detalles ↪</span>
                     </div>
                     <div class="flip-card-back">
-                        <p>Comprensión profunda de eventos históricos mediante técnicas de oratoria y storytelling. Adiós a la memorización vacía, bienvenido el análisis de contexto.</p>
+                        <p>Análisis profundo mediante técnicas de oratoria y storytelling. Comprensión real del contexto histórico.</p>
                     </div>
                 </div>
             </div>
@@ -313,51 +269,57 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Programación</h3>
-                        <span style="color:var(--dorado)">Lenguaje Python</span>
+                        <h3>PROGRAMACIÓN</h3>
+                        <span style="color:var(--dorado)">Ver detalles ↪</span>
                     </div>
                     <div class="flip-card-back">
-                        <p>Introducción a la lógica de programación y desarrollo de algoritmos. Preparación para el futuro tecnológico con tutoría individualizada de alta demanda.</p>
+                        <p>Introducción a la lógica y algoritmos con Python. Formación tecnológica individualizada de alta demanda.</p>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <h2 class="section-title">Planes Mensuales</h2>
+        <h2 class="section-title">Inversión y Promociones</h2>
         <div class="pricing-grid">
-            
             <div class="price-card">
-                <h4>Plan Essential</h4>
-                <div class="price-amount">S/ 180<span>/mes</span></div>
-                <ul class="price-features">
-                    <li>4 Horas de clase al mes</li>
-                    <li>Sesiones de 1 hora semanal</li>
-                    <li>Material de apoyo digital</li>
-                    <li>Soporte vía WhatsApp</li>
-                </ul>
+                <h4>Sesión Individual</h4>
+                <div class="price-amount"><span>S/</span> 34.90</div>
+                <p>Clase personalizada de 1 hora enfocada en objetivos específicos.</p>
             </div>
 
             <div class="price-card featured">
-                <div class="featured-tag">RECOMENDADO</div>
-                <h4>Plan Intensivo</h4>
-                <div class="price-amount">S/ 340<span>/mes</span></div>
-                <ul class="price-features">
-                    <li>8 Horas de clase al mes</li>
-                    <li>2 Sesiones de 1 hora semanal</li>
-                    <li>Seguimiento de progreso personalizado</li>
-                    <li>Preparación especial para exámenes</li>
-                </ul>
+                <h4 style="color:var(--dorado)">Dúo Pack Especial</h4>
+                <div class="price-amount"><span>S/</span> 59.90</div>
+                <p>Pack de 2 clases. Ideal para refuerzo intensivo antes de exámenes.</p>
+                <small style="color:#27ae60; font-weight:bold;">Ahorro exclusivo</small>
+            </div>
+        </div>
+
+        <div class="payment-info">
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--azul-marino); margin-top: 0;">Facilidades de Pago</h3>
+            
+            <div class="pago-despues">
+                * Los pagos se hacen después de clases.
             </div>
 
+            <div class="payment-methods">
+                <div class="method">
+                    <strong>📱 Yape</strong>
+                    <span>970549915</span>
+                </div>
+                <div class="method">
+                    <strong>🏦 Cuenta BCP</strong>
+                    <span>[Tu número de cuenta aquí]</span>
+                </div>
+            </div>
         </div>
 
     </div>
 
     <section class="contacto-final">
         <h2>Inicie su Formación de Élite</h2>
-        <p>Consulte disponibilidad de horarios para sesiones privadas en el condominio.</p>
-        <a href="https://wa.me/51970549915" target="_blank" class="btn-gold">Reservar Sesión de Diagnóstico</a>
+        <p>Reserva tu espacio directamente por WhatsApp.</p>
+        <a href="https://wa.me/51970549915" target="_blank" class="btn-gold">Consultar Disponibilidad</a>
     </section>
 
 </body>
