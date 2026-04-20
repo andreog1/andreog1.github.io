@@ -13,16 +13,13 @@
             --blanco-suave: #f4f7f9;
             --texto-oscuro: #1a1a1a;
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--blanco-suave);
             color: var(--texto-oscuro);
-            scroll-behavior: smooth;
         }
-
         header {
             background-color: var(--azul-marino);
             color: white;
@@ -30,31 +27,22 @@
             text-align: center;
             border-bottom: 4px solid var(--dorado);
         }
-
         header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             margin: 0;
-            letter-spacing: 2px;
             color: var(--dorado-brillante);
         }
-
         header p {
-            font-weight: 300;
             font-size: 1.2rem;
-            letter-spacing: 1px;
             margin-top: 10px;
-            opacity: 0.9;
         }
-
         .container {
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
             padding: 60px 0;
         }
-
-        /* Sección Perfil */
         .profile-section {
             text-align: center;
             margin-bottom: 80px;
@@ -64,14 +52,6 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             border-top: 4px solid var(--azul-marino);
         }
-
-        .profile-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--azul-marino);
-            margin-bottom: 5px;
-        }
-
         .profile-tag {
             display: inline-block;
             background: var(--dorado);
@@ -81,33 +61,28 @@
             font-weight: 600;
             font-size: 0.8rem;
             margin-bottom: 20px;
-            text-transform: uppercase;
         }
-
         .btn-linkedin {
             display: inline-block;
             background-color: #0077b5;
             color: white;
-            padding: 10px 25px;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 600;
-            font-size: 0.9rem;
             margin-top: 20px;
             transition: background 0.3s;
         }
-
         .btn-linkedin:hover {
             background-color: #005582;
         }
-
         .section-title {
             font-family: 'Playfair Display', serif;
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
+            color: var(--azul-marino);
         }
-
         .section-title::after {
             content: '';
             display: block;
@@ -116,8 +91,6 @@
             background: var(--dorado);
             margin: 15px auto;
         }
-
-        /* Grid de Servicios */
         .materias-grid {
             display: flex;
             flex-wrap: wrap;
@@ -125,33 +98,29 @@
             justify-content: center;
             margin-bottom: 80px;
         }
-
         .flip-card {
             background-color: transparent;
             width: 320px;
             height: 320px;
             perspective: 1000px;
         }
-
         .flip-card-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.8s;
             transform-style: preserve-3d;
             cursor: pointer;
         }
-
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
-
         .flip-card-front, .flip-card-back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 5px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -160,28 +129,22 @@
             box-sizing: border-box;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
-
         .flip-card-front {
             background-color: white;
             border-bottom: 4px solid var(--dorado);
         }
-
         .flip-card-front h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            text-transform: uppercase;
             color: var(--azul-marino);
+            margin-bottom: 10px;
         }
-
         .flip-card-back {
             background-color: var(--azul-marino);
             color: white;
             transform: rotateY(180deg);
-            font-weight: 300;
             text-align: center;
         }
-
-        /* Precios */
         .pricing-grid {
             display: flex;
             flex-wrap: wrap;
@@ -189,7 +152,6 @@
             justify-content: center;
             margin-bottom: 40px;
         }
-
         .price-card {
             background: white;
             padding: 40px;
@@ -198,40 +160,18 @@
             text-align: center;
             border-radius: 8px;
             border: 1px solid #e1e1e1;
-            transition: transform 0.3s;
         }
-
-        .price-card:hover { transform: translateY(-10px); }
-
         .price-card.featured {
             border: 2px solid var(--dorado);
             background-color: #fffdf9;
-            position: relative;
         }
-
-        .featured-tag {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dorado);
-            color: var(--azul-marino);
-            padding: 5px 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 20px;
-        }
-
         .price-amount {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             color: var(--azul-marino);
             margin: 15px 0;
         }
-
         .price-amount span { font-size: 1.2rem; }
-
-        /* Métodos de Pago */
         .payment-info {
             background: white;
             padding: 40px;
@@ -239,39 +179,21 @@
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border: 1px solid var(--dorado);
         }
-
-        .pago-despues {
-            color: var(--azul-marino);
-            font-style: italic;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-
         .payment-methods {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 10px;
         }
-
         .method { margin: 10px; }
-        .method strong { color: var(--azul-marino); display: block; font-size: 1.1rem; }
-
-        /* Botón Final */
         .contacto-final {
             background-color: var(--azul-marino);
             color: white;
             text-align: center;
             padding: 80px 20px;
-            margin-top: 60px;
         }
-
         .btn-gold {
             display: inline-block;
             background-color: var(--dorado);
@@ -282,11 +204,6 @@
             border-radius: 4px;
             margin-top: 30px;
             text-transform: uppercase;
-            transition: background 0.3s;
-        }
-        
-        .btn-gold:hover {
-            background-color: var(--dorado-brillante);
         }
     </style>
 </head>
@@ -299,8 +216,100 @@
     </header>
 
     <div class="container">
-
+        
         <section class="profile-section">
             <span class="profile-tag">Perfil del Tutor</span>
-            <h2>André Ríos</h2>
-            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.1
+            <h2 style="font-family: 'Playfair Display', serif; color: #0b1a2a; margin-bottom: 5px;">André Ríos</h2>
+            <h3 style="color: #333; margin-top: 0; font-weight: 600; font-size: 1.1rem;">Estudiante de Ingeniería de Sistemas - Universidad de Lima</h3>
+            
+            <p style="color: #444; line-height: 1.8; max-width: 800px; margin: 20px auto; font-size: 1.05rem;">
+                Ofrezco tutorías con un enfoque analítico y dinámico. Cuento con una sólida base en desarrollo de software (Python, Java, C) y ciberseguridad, complementada por mi formación en artes escénicas. Esto me ha brindado excelentes habilidades de oratoria y narración, permitiéndome comunicar conceptos complejos matemáticos, históricos y de programación de forma clara, entretenida y cero aburrida. Además, actualmente expando mis conocimientos técnicos en el programa <em>"Code in Place"</em> de la <strong>Universidad de Stanford</strong>.
+            </p>
+            
+            <a href="https://www.linkedin.com/in/andrerioss/" target="_blank" class="btn-linkedin">💼 Conecta conmigo en LinkedIn</a>
+        </section>
+        
+        <h2 class="section-title">Propuesta Educativa</h2>
+        <div class="materias-grid">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>MATEMÁTICAS</h3>
+                        <span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p style="padding: 0 15px;">Dominio total de Cálculo 1, álgebra y razonamiento matemático. Preparación precisa para exámenes críticos y refuerzo escolar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>HISTORIA</h3>
+                        <span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p style="padding: 0 15px;">Análisis profundo mediante técnicas de oratoria y storytelling. Comprensión real del contexto histórico sin memorización vacía.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>PROGRAMACIÓN</h3>
+                        <span style="color:#c5a059; font-weight: 600;">Ver detalles ↪</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <p style="padding: 0 15px;">Introducción a la lógica y algoritmos con Python. Formación tecnológica individualizada de alta demanda basada en estándares universitarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Inversión y Promociones</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4 style="color: #0b1a2a; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Sesión Individual</h4>
+                <div class="price-amount"><span>S/</span> 34.90</div>
+                <p style="color: #444;">Clase personalizada de 1 hora enfocada en objetivos y temas específicos.</p>
+            </div>
+
+            <div class="price-card featured">
+                <h4 style="color:#c5a059; margin: 0; font-size: 1.2rem; text-transform: uppercase;">Dúo Pack Especial</h4>
+                <div class="price-amount"><span>S/</span> 59.90</div>
+                <p style="color: #444;">Pack de 2 clases. Ideal para refuerzo intensivo antes de prácticas o exámenes.</p>
+                <small style="color:#27ae60; font-weight:bold; font-size: 0.9rem;">Ahorro exclusivo</small>
+            </div>
+        </div>
+
+        <div class="payment-info">
+            <h3 style="font-family: 'Playfair Display', serif; color: #0b1a2a; margin-top: 0; font-size: 1.8rem;">Facilidades de Pago</h3>
+            
+            <p style="color: #0b1a2a; font-style: italic; font-weight: 600; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; font-size: 1.1rem;">
+                * Los pagos se hacen después de clases.
+            </p>
+
+            <div class="payment-methods">
+                <div class="method">
+                    <strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">📱 Yape</strong>
+                    <span style="color: #444;">970549915</span>
+                </div>
+                <div class="method">
+                    <strong style="color: #0b1a2a; display: block; font-size: 1.2rem;">💵 Efectivo</strong>
+                    <span style="color: #444;">Pago al finalizar la sesión</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="contacto-final">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0;">Inicie su Formación de Élite</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9;">Reserva tu espacio directamente por WhatsApp.</p>
+        <a href="https://wa.me/51970549915" target="_blank" class="btn-gold">Consultar Disponibilidad</a>
+    </section>
+
+</body>
+</html>
