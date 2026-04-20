@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --verde-esmeralda: #062b1a; /* Verde ligeramente más oscuro y elegante */
+            --verde-esmeralda: #062b1a;
             --dorado: #c5a059;
             --dorado-brillante: #e5c185;
             --blanco-suave: #f4f7f9;
@@ -132,9 +132,21 @@
             border-top: 5px solid var(--dorado); margin-bottom: 60px; display: none;
         }
 
-        .reserva-header { text-align: center; margin-bottom: 10px; }
+        .reserva-header { text-align: center; margin-bottom: 20px; }
         .reserva-header h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--verde-esmeralda); margin: 0; }
-        .status-plan { color: var(--dorado); font-weight: 600; margin-bottom: 20px; font-size: 1.2rem; }
+        .status-plan { color: var(--dorado); font-weight: 600; margin-bottom: 15px; font-size: 1.2rem; }
+        
+        .instruccion-calendario {
+            background-color: #fcf9f2;
+            border: 2px dashed var(--dorado);
+            color: var(--verde-esmeralda);
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
 
         /* Pagos y Contacto */
         .payment-info {
@@ -161,7 +173,7 @@
         
         <div class="perfil-intro">
             <p>Estudiante de Ingeniería de Sistemas en la Universidad de Lima. Ofrezco un servicio de tutoría personalizada diseñado para potenciar el aprendizaje a través de una enseñanza analítica, dinámica y estructurada.</p>
-            <a href="https://www.linkedin.com/in/andrerios-perfil" target="_blank" class="btn-linkedin">
+            <a href="https://www.linkedin.com/in/andrerioss/" target="_blank" class="btn-linkedin">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 Mi Perfil Profesional
             </a>
@@ -212,10 +224,15 @@
             <h2 class="section-title" style="margin-bottom: 20px;"><span>Paso 3</span>Agenda tu Sesión</h2>
             <div class="reserva-header">
                 <div class="status-plan" id="plan-desc">Plan no seleccionado</div>
-                <p style="color: #666; font-size: 1rem; max-width: 600px; margin: 0 auto;">Selecciona el horario para tu primera clase. Los horarios bloqueados ya han sido reservados por otros residentes.</p>
+                
+                <div class="instruccion-calendario">
+                    👇 Haz clic en el calendario de abajo para elegir tu horario 👇
+                </div>
+                
+                <p style="color: #666; font-size: 0.95rem; max-width: 600px; margin: 10px auto 0 auto;">Los horarios bloqueados ya han sido reservados por otros residentes.</p>
             </div>
             
-            <div class="calendly-inline-widget" data-url="https://calendly.com/andrerioscontacto?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/andrerioscontacto/new-meeting?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:600px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
 
@@ -236,18 +253,17 @@
     </div>
 
     <script>
-        // Base de datos de precios con psicológicos (.90)
         const tarifas = {
             'Matemáticas': [
-                { nombre: 'Sesión Única', desc: '1 Clase (1.5 horas). Ideal para dudas específicas y tareas.', precio: 44.90, antiguo: 65, tag: '', descT: '' },
+                { nombre: 'Sesión Única', desc: '1 Clase (1 hora con 30 minutos). Ideal para dudas específicas y tareas.', precio: 44.90, antiguo: 65, tag: '', descT: '' },
                 { nombre: 'Dúo Pack', desc: '2 Clases (3 horas). Perfecto para repasar antes de un examen.', precio: 79.90, antiguo: 115, tag: 'POPULAR', descT: '-30% OFF' },
-                { nombre: 'Pack Exámenes', desc: '3 Clases (4.5 horas). Cobertura total de los temas críticos.', precio: 114.90, antiguo: 160, tag: '', descT: '' },
+                { nombre: 'Pack Exámenes', desc: '3 Clases (4 horas con 30 minutos). Cobertura total de los temas críticos.', precio: 114.90, antiguo: 160, tag: '', descT: '' },
                 { nombre: 'Mensual Intensivo', desc: '8 Clases. Domina la materia desde cero con seguimiento.', precio: 279.90, antiguo: 380, tag: 'MEJOR VALOR', descT: '' }
             ],
             'Python': [
-                { nombre: 'Sesión Única', desc: '1 Clase (1.5 horas). Introducción a lógica y estructura.', precio: 54.90, antiguo: 75, tag: '', descT: '' },
+                { nombre: 'Sesión Única', desc: '1 Clase (1 hora con 30 minutos). Introducción a lógica y estructura.', precio: 54.90, antiguo: 75, tag: '', descT: '' },
                 { nombre: 'Dúo Pack', desc: '2 Clases (3 horas). Avance rápido en programación.', precio: 99.90, antiguo: 140, tag: 'POPULAR', descT: 'OFERTA' }, 
-                { nombre: 'Pack Proyectos', desc: '3 Clases (4.5 horas). Soporte directo en creación de código.', precio: 139.90, antiguo: 195, tag: '', descT: '' }, 
+                { nombre: 'Pack Proyectos', desc: '3 Clases (4 horas con 30 minutos). Soporte directo en creación de código.', precio: 139.90, antiguo: 195, tag: '', descT: '' }, 
                 { nombre: 'Bootcamp Mensual', desc: '8 Clases. Aprende a programar desde cero a nivel intermedio.', precio: 339.90, antiguo: 480, tag: 'MEJOR VALOR', descT: '' } 
             ]
         };
@@ -268,7 +284,6 @@
 
                 let cardEspecial = plan.tag ? 'featured' : '';
 
-                // Usamos .toFixed(2) para que imprima exactamente "44.90" en la pantalla
                 const cardHTML = `
                     <div class="price-card ${cardEspecial}">
                         ${etiquetasHTML}
