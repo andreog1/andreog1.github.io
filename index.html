@@ -201,7 +201,7 @@
                     <li>Álgebra y Aritmética</li>
                     <li>Razonamiento Matemático</li>
                     <li>Cálculo 1 y Álgebra Lineal</li>
-                    <li>Primaria y Secundaria</li>
+                    <li>Nivel Primaria y Secundaria</li>
                 </ul>
                 <button class="btn-materia" onclick="cargarPlanes('Matemáticas')">Ver Promociones</button>
             </div>
@@ -257,27 +257,32 @@
     <script>
         const tarifas = {
             'Matemáticas': [
-                { nombre: 'Sesión Única', slots: 1, precio: 44.90, antiguo: 65, tag: '', desc: '1 Clase (1h 30m)' },
-                { nombre: 'Dúo Pack', slots: 2, precio: 79.90, antiguo: 115, tag: 'POPULAR', desc: '2 Clases (3h totales)' },
-                { nombre: 'Pack Exámenes', slots: 3, precio: 114.90, antiguo: 160, tag: '', desc: '3 Clases (4h 30m totales)' },
+                { nombre: 'Sesión Única', slots: 1, precio: 44.90, antiguo: 65, tag: '', desc: '1 Clase (1 hora con 30 minutos)' },
+                { nombre: 'Dúo Pack', slots: 2, precio: 79.90, antiguo: 115, tag: 'POPULAR', desc: '2 Clases (3 horas totales)' },
+                { nombre: 'Pack Exámenes', slots: 3, precio: 114.90, antiguo: 160, tag: '', desc: '3 Clases (4 horas con 30 minutos totales)' },
                 { nombre: 'Mensual Intensivo', slots: 8, precio: 279.90, antiguo: 380, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
             ],
             'Python': [
-                { nombre: 'Sesión Única', slots: 1, precio: 54.90, antiguo: 75, tag: '', desc: '1 Clase (1h 30m)' },
-                { nombre: 'Dúo Pack', slots: 2, precio: 99.90, antiguo: 140, tag: 'POPULAR', desc: '2 Clases (3h totales)' },
-                { nombre: 'Pack Proyectos', slots: 3, precio: 139.90, antiguo: 195, tag: '', desc: '3 Clases (4h 30m totales)' },
+                { nombre: 'Sesión Única', slots: 1, precio: 54.90, antiguo: 75, tag: '', desc: '1 Clase (1 hora con 30 minutos)' },
+                { nombre: 'Dúo Pack', slots: 2, precio: 99.90, antiguo: 140, tag: 'POPULAR', desc: '2 Clases (3 horas totales)' },
+                { nombre: 'Pack Proyectos', slots: 3, precio: 139.90, antiguo: 195, tag: '', desc: '3 Clases (4 horas con 30 minutos totales)' },
                 { nombre: 'Bootcamp Mensual', slots: 8, precio: 339.90, antiguo: 480, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
             ]
         };
 
         // CONFIGURACIÓN DE BLOQUES: 8 AM a 11 PM en intervalos de 1.5h
-        const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM"];
+        const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
         const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
         
-        // ⚠️ ESCRIBE AQUÍ LOS HORARIOS QUE YA TE RESERVARON PARA BLOQUEARLOS:
+        // HORARIOS BLOQUEADOS: Cursos, trayectos, y 11pm (solo Viernes y Domingo)
         const horariosOcupados = [
-            "Sáb - 08:00 AM", 
-            "Lun - 09:30 PM"
+            "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
+            "Mar - 09:30 AM", "Mar - 11:00 AM", "Mar - 12:30 PM",
+            "Mié - 03:30 PM", "Mié - 05:00 PM", "Mié - 06:30 PM", "Mié - 08:00 PM",
+            "Jue - 09:30 AM", "Jue - 11:00 AM", "Jue - 12:30 PM",
+            "Vie - 08:00 AM", "Vie - 09:30 AM", "Vie - 11:00 PM",
+            "Sáb - 08:00 AM", "Sáb - 09:30 AM", "Sáb - 11:00 AM",
+            "Dom - 11:00 PM"
         ];
 
         let materiaActual = '';
