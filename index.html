@@ -141,9 +141,14 @@
 
         .calendario-grid {
             display: flex; gap: 10px; overflow-x: auto; padding-bottom: 20px;
+            justify-content: center;
         }
 
-        .dia-columna { flex: 1; min-width: 130px; display: flex; flex-direction: column; gap: 8px; }
+        @media (max-width: 1000px) {
+            .calendario-grid { justify-content: flex-start; }
+        }
+
+        .dia-columna { flex: 1; min-width: 130px; max-width: 140px; display: flex; flex-direction: column; gap: 8px; }
         .dia-titulo {
             background-color: var(--verde-esmeralda); color: white; text-align: center;
             padding: 10px 0; border-radius: 4px; font-weight: 600; font-size: 0.9rem;
@@ -160,6 +165,7 @@
         .instruccion-bloques {
             text-align: center; background: #fcf9f2; border: 2px dashed var(--dorado);
             padding: 15px; border-radius: 8px; margin-bottom: 25px; color: var(--verde-esmeralda); font-weight: 600;
+            max-width: 800px; margin-left: auto; margin-right: auto;
         }
 
         .checkout-box { text-align: center; margin-top: 30px; display: none; }
@@ -229,7 +235,7 @@
                     <li>Álgebra y Aritmética</li>
                     <li>Razonamiento Matemático</li>
                     <li>Cálculo 1 y Álgebra Lineal</li>
-                    <li>Nivel Primaria y Secundaria</li>
+                    <li>Nivel Primaria, Secundaria y Pre Universitario</li>
                 </ul>
                 <button class="btn-materia" onclick="cargarPlanes('Matemáticas')">Ver Promociones</button>
             </div>
@@ -314,14 +320,24 @@
         const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
         const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
         
-        // HORARIOS BLOQUEADOS
+        // HORARIOS BLOQUEADOS EXACTOS BASADOS EN TU UNIVERSIDAD, TRASLADOS Y DESCANSO
         const horariosOcupados = [
-            "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
-            "Mar - 09:30 AM", "Mar - 11:00 AM", "Mar - 12:30 PM",
+            // LUNES: Clases de 7-10 y 17-20. (Bloqueo de traslados: 6-11 y 16-21)
+            "Lun - 08:00 AM", "Lun - 09:30 AM", "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
+            
+            // MIÉRCOLES: Clase de 17-20. (Bloqueo de traslados: 16-21)
             "Mié - 03:30 PM", "Mié - 05:00 PM", "Mié - 06:30 PM", "Mié - 08:00 PM",
-            "Jue - 09:30 AM", "Jue - 11:00 AM", "Jue - 12:30 PM",
-            "Vie - 08:00 AM", "Vie - 09:30 AM", "Vie - 11:00 PM",
+            
+            // JUEVES: Clases Virtuales (Sin traslado). De 7-10 y 18-22
+            "Jue - 08:00 AM", "Jue - 09:30 AM", "Jue - 05:00 PM", "Jue - 06:30 PM", "Jue - 08:00 PM", "Jue - 09:30 PM",
+            
+            // VIERNES: Bloqueado desde 11:30 AM hasta 8 PM. Y a las 11 PM por descanso
+            "Vie - 11:00 AM", "Vie - 12:30 PM", "Vie - 02:00 PM", "Vie - 03:30 PM", "Vie - 05:00 PM", "Vie - 06:30 PM", "Vie - 11:00 PM",
+            
+            // SÁBADO: Clases de 7-11. (Bloqueo de traslados: 6-12)
             "Sáb - 08:00 AM", "Sáb - 09:30 AM", "Sáb - 11:00 AM",
+            
+            // DOMINGO: Descanso a las 11 PM
             "Dom - 11:00 PM"
         ];
 
