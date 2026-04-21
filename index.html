@@ -103,7 +103,7 @@
         .area-card li { margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
         .area-card li::before { content: '•'; color: var(--dorado); font-weight: bold; }
         
-        .area-card-texto { color:#666; margin: 0 0 20px 0; text-align: left; flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
+        .area-card-texto { color:#666; margin: 0 0 20px 0; text-align: center; flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
 
         .btn-materia {
             background-color: var(--dorado); color: var(--verde-esmeralda); border: none; padding: 12px 25px;
@@ -126,7 +126,7 @@
         
         .featured-tag {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--dorado); 
-            color: var(--verde-esmeralda); padding: 5px 15px; font-size: 0.8rem; font-weight: 600; border-radius: 20px; z-index: 2;
+            color: var(--verde-esmeralda); padding: 5px 15px; font-size: 0.8rem; font-weight: 600; border-radius: 20px; z-index: 2; width: max-content;
         }
         .discount-badge {
             position: absolute; top: 15px; right: -10px; background: var(--rojo-error); color: white; padding: 5px 15px;
@@ -226,7 +226,7 @@
 <body>
 
     <header>
-        <img src="Gemini_Generated_Image_5645ut5645ut5645.jpg" alt="Logo André Ríos Tutoría de Élite" class="logo-header">
+        <img src="logo.jpg" alt="Logo André Ríos Tutoría de Élite" class="logo-header">
         
         <h1>André Ríos</h1>
         <p style="font-size: 1rem; letter-spacing: 2px; color: var(--dorado-brillante); margin-top: 5px; margin-bottom: 15px; font-weight: 600;">TUTORÍA PRIVADA DE ÉLITE</p>
@@ -336,6 +336,7 @@
         const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
         const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
         
+        // HORARIOS BLOQUEADOS EXACTOS BASADOS EN TU UNIVERSIDAD Y TRASLADOS
         const horariosOcupados = [
             "Lun - 08:00 AM", "Lun - 09:30 AM", "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
             "Mié - 03:30 PM", "Mié - 05:00 PM", "Mié - 06:30 PM", "Mié - 08:00 PM",
