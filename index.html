@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>André | Tutoría Privada de Élite</title>
+    <title>André Ríos | Tutoría Privada de Élite</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -28,14 +28,29 @@
         header {
             background-color: var(--verde-esmeralda);
             color: white;
-            padding: 80px 20px 60px 20px;
+            padding: 60px 20px 50px 20px;
             text-align: center;
             border-bottom: 4px solid var(--dorado);
         }
 
+        /* Estilos del Logo */
+        .logo-header {
+            width: 180px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(197, 160, 89, 0.3);
+            transition: transform 0.4s ease;
+        }
+        
+        .logo-header:hover {
+            transform: scale(1.05);
+        }
+
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0;
             letter-spacing: 2px;
             color: var(--dorado-brillante);
@@ -211,9 +226,10 @@
 <body>
 
     <header>
-        <p style="font-size: 0.9rem; letter-spacing: 2px;">EXCELENCIA ACADÉMICA A DOMICILIO</p>
+        <img src="logo.jpg" alt="Logo André Ríos Tutoría de Élite" class="logo-header">
+        
         <h1>André Ríos</h1>
-        <p class="ubicacion">Monterrico, Surco</p>
+        <p style="font-size: 1rem; letter-spacing: 2px; color: var(--dorado-brillante); margin-top: 5px; margin-bottom: 15px; font-weight: 600;">TUTORÍA PRIVADA DE ÉLITE</p>
         
         <div class="perfil-intro">
             <p>Estudiante de Ingeniería de Sistemas en la Universidad de Lima. Ofrezco un servicio de tutoría personalizada diseñado para potenciar el aprendizaje a través de una enseñanza analítica, dinámica y estructurada.</p>
