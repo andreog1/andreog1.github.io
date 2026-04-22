@@ -28,35 +28,18 @@
         header {
             background-color: var(--verde-esmeralda);
             color: white;
-            padding: 60px 20px 50px 20px;
+            padding: 80px 20px 60px 20px;
             text-align: center;
             border-bottom: 4px solid var(--dorado);
         }
 
-        /* Estilos del Logo */
-        .logo-header {
-            width: 180px;
-            height: auto;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 2px solid rgba(197, 160, 89, 0.3);
-            transition: transform 0.4s ease;
-        }
-        
-        .logo-header:hover {
-            transform: scale(1.05);
-        }
-
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             margin: 0;
             letter-spacing: 2px;
             color: var(--dorado-brillante);
         }
-
-        header p.ubicacion { font-weight: 300; font-size: 1.2rem; letter-spacing: 1px; margin-top: 10px; opacity: 0.9; }
 
         .perfil-intro {
             max-width: 700px;
@@ -85,7 +68,6 @@
         .section-title span { color: var(--dorado); font-size: 1.5rem; display: block; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--dorado); margin: 15px auto; }
 
-        /* Paso 1: Especialidades */
         .areas-grid {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px;
         }
@@ -98,11 +80,9 @@
         .area-card:hover { transform: translateY(-5px); }
 
         .area-card h3 { font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; }
-        
         .area-card ul { list-style: none; padding: 0; text-align: left; margin: 0 0 20px 0; color: #555; flex-grow: 1; }
         .area-card li { margin-bottom: 8px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
         .area-card li::before { content: '•'; color: var(--dorado); font-weight: bold; }
-        
         .area-card-texto { color:#666; margin: 0 0 20px 0; text-align: center; flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
 
         .btn-materia {
@@ -111,7 +91,6 @@
         }
         .btn-materia:hover { background-color: var(--dorado-brillante); }
 
-        /* Paso 2: Planes */
         #planes-modulo { display: none; margin-top: 80px; padding-top: 60px; border-top: 1px solid #eee; }
         .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
 
@@ -119,7 +98,7 @@
             background: white; padding: 30px; text-align: center; border-radius: 8px;
             border: 1px solid #e1e1e1; transition: transform 0.3s, box-shadow 0.3s;
             position: relative; display: flex; flex-direction: column; justify-content: space-between;
-            flex: 1 1 280px; max-width: 320px;
+            flex: 1 1 240px; max-width: 270px;
         }
         .price-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
         .price-card.featured { border: 2px solid var(--dorado); background-color: #fffdf9; }
@@ -146,7 +125,6 @@
         }
         .btn-select:hover, .btn-select.active { background-color: var(--verde-esmeralda); color: white; }
 
-        /* Paso 3: Calendario Manual */
         .reserva-module {
             background: white; padding: 40px 10px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border-top: 5px solid var(--dorado); margin-bottom: 60px; display: none;
@@ -155,13 +133,10 @@
         .status-plan { color: var(--dorado); font-weight: 600; margin-bottom: 20px; font-size: 1.2rem; text-align: center; }
 
         .calendario-grid {
-            display: flex; gap: 10px; overflow-x: auto; padding-bottom: 20px;
-            justify-content: center;
+            display: flex; gap: 10px; overflow-x: auto; padding-bottom: 20px; justify-content: center;
         }
 
-        @media (max-width: 1000px) {
-            .calendario-grid { justify-content: flex-start; }
-        }
+        @media (max-width: 1000px) { .calendario-grid { justify-content: flex-start; } }
 
         .dia-columna { flex: 1; min-width: 130px; max-width: 140px; display: flex; flex-direction: column; gap: 8px; }
         .dia-titulo {
@@ -191,7 +166,6 @@
         }
         .btn-whatsapp-final:hover { transform: scale(1.05); }
 
-        /* Pagos */
         .payment-info {
             background: white; padding: 50px 40px; border-radius: 12px; text-align: center;
             max-width: 700px; margin: 0 auto 40px auto; border: 1px solid var(--dorado);
@@ -199,24 +173,15 @@
         }
         .pago-despues { color: var(--verde-esmeralda); font-style: italic; font-weight: 600; font-size: 1.1rem; margin-bottom: 30px; }
         
-        .payment-methods { 
-            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; 
-        }
+        .payment-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .method { 
             background: var(--blanco-suave); border: 2px solid var(--verde-esmeralda); 
-            padding: 20px 30px; border-radius: 12px; min-width: 200px;
-            transition: transform 0.3s;
+            padding: 20px 30px; border-radius: 12px; min-width: 200px; transition: transform 0.3s;
         }
         .method:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(6, 43, 26, 0.1); }
-        .method strong { 
-            color: var(--verde-esmeralda); display: block; font-size: 1.3rem; 
-            margin-bottom: 8px; font-family: 'Playfair Display', serif; 
-        }
-        .method span { 
-            font-size: 1.1rem; color: #444; font-weight: 600; 
-        }
+        .method strong { color: var(--verde-esmeralda); display: block; font-size: 1.3rem; margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+        .method span { font-size: 1.1rem; color: #444; font-weight: 600; }
 
-        /* Contacto Final */
         .contacto-final {
             background-color: white; padding: 50px 40px; border-radius: 12px; text-align: center;
             max-width: 800px; margin: 0 auto 60px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-bottom: 5px solid var(--verde-esmeralda);
@@ -226,10 +191,8 @@
 <body>
 
     <header>
-        <img src="logo.jpg" alt="Logo André Ríos Tutoría de Élite" class="logo-header">
-        
         <h1>André Ríos</h1>
-        <p style="font-size: 1rem; letter-spacing: 2px; color: var(--dorado-brillante); margin-top: 5px; margin-bottom: 15px; font-weight: 600;">TUTORÍA PRIVADA DE ÉLITE</p>
+        <p style="font-size: 1.1rem; letter-spacing: 2px; color: var(--dorado-brillante); margin-top: 10px; margin-bottom: 15px; font-weight: 600;">TUTORÍA PRIVADA DE ÉLITE</p>
         
         <div class="perfil-intro">
             <p>Estudiante de Ingeniería de Sistemas en la Universidad de Lima. Ofrezco un servicio de tutoría personalizada diseñado para potenciar el aprendizaje a través de una enseñanza analítica, dinámica y estructurada.</p>
@@ -241,7 +204,6 @@
     </header>
 
     <div class="container">
-        
         <h2 class="section-title"><span>Paso 1</span>Elige la Materia</h2>
         <div class="areas-grid">
             <div class="area-card">
@@ -269,7 +231,7 @@
 
             <div class="area-card">
                 <h3>Otros Cursos</h3>
-                <p class="area-card-texto">Si deseas asesoría para Física, Química, tareas específicas o cualquier otra materia que no esté en la lista, consulta disponibilidad directa.</p>
+                <p class="area-card-texto">Si deseas asesoría para Física, Química, tareas específicas o cualquier otra materia que no esté en la lista para <b>Surco, La Molina o San Borja</b>, consulta disponibilidad directa.</p>
                 <a href="https://wa.me/51970549915" target="_blank" class="btn-materia">Preguntar por WhatsApp</a>
             </div>
         </div>
@@ -282,13 +244,8 @@
         <div id="reserva-modulo" class="reserva-module">
             <h2 class="section-title"><span>Paso 3</span>Agenda tus Horarios</h2>
             <div class="status-plan" id="plan-desc"></div>
-            
-            <div class="instruccion-bloques" id="instruccion-texto">
-                👇 Haz clic en los bloques de abajo para elegir tus horarios 👇
-            </div>
-
+            <div class="instruccion-bloques" id="instruccion-texto">👇 Selecciona tus horarios en el calendario 👇</div>
             <div class="calendario-grid" id="grid-horarios"></div>
-
             <div class="checkout-box" id="finalizar-box">
                 <a href="#" id="link-whatsapp-final" class="btn-whatsapp-final" target="_blank">📱 Confirmar Horarios por WhatsApp</a>
             </div>
@@ -298,52 +255,42 @@
             <h3 style="font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 2rem; margin-top: 0; margin-bottom: 10px;">Facilidades de Pago</h3>
             <p class="pago-despues">* Los pagos se realizan al finalizar cada sesión.</p>
             <div class="payment-methods">
-                <div class="method">
-                    <strong>📱 Yape</strong>
-                    <span>970549915</span>
-                </div>
-                <div class="method">
-                    <strong>💵 Efectivo</strong>
-                    <span>Pago presencial</span>
-                </div>
+                <div class="method"><strong>📱 Yape</strong><span>970549915</span></div>
+                <div class="method"><strong>💵 Efectivo</strong><span>Pago presencial</span></div>
             </div>
         </div>
 
         <div class="contacto-final">
             <h3 style="font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 2rem; margin-top: 0; margin-bottom: 10px;">¿Más preguntas o contacto?</h3>
-            <p style="color: #555; font-size: 1.1rem; margin-bottom: 30px;">Si tienes alguna duda sobre la metodología, deseas ajustar un horario que no aparece disponible, o prefieres coordinar directamente conmigo, no dudes en escribirme.</p>
+            <p style="color: #555; font-size: 1.1rem; margin-bottom: 30px;">Si tienes alguna duda sobre la metodología o deseas coordinar directamente conmigo, escríbeme.</p>
             <a href="https://wa.me/51970549915" target="_blank" class="btn-materia" style="display: inline-block; width: auto; padding: 15px 40px; font-size: 1.1rem; margin-top: 0;">📲 Escríbeme a WhatsApp</a>
         </div>
-
     </div>
 
     <script>
         const tarifas = {
             'Matemáticas': [
-                { nombre: 'Sesión Única', slots: 1, precio: 44.90, antiguo: 65, tag: '', desc: '1 Clase (1 hora con 30 minutos)' },
-                { nombre: 'Dúo Pack', slots: 2, precio: 79.90, antiguo: 115, tag: 'POPULAR', desc: '2 Clases (3 horas totales)' },
-                { nombre: 'Pack Exámenes', slots: 3, precio: 114.90, antiguo: 160, tag: '', desc: '3 Clases (4 horas con 30 minutos totales)' },
+                { nombre: 'Sesión Única', slots: 1, precio: 44.90, antiguo: 65, tag: '', desc: '1 Clase (1.5h)' },
+                { nombre: 'Dúo Pack', slots: 2, precio: 79.90, antiguo: 115, tag: 'POPULAR', desc: '2 Clases (3h)' },
+                { nombre: 'Pack Exámenes', slots: 3, precio: 114.90, antiguo: 160, tag: '', desc: '3 Clases (4.5h)' },
                 { nombre: 'Mensual Intensivo', slots: 8, precio: 279.90, antiguo: 380, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
             ],
             'Python': [
-                { nombre: 'Sesión Única', slots: 1, precio: 54.90, antiguo: 75, tag: '', desc: '1 Clase (1 hora con 30 minutos)' },
-                { nombre: 'Dúo Pack', slots: 2, precio: 99.90, antiguo: 140, tag: 'POPULAR', desc: '2 Clases (3 horas totales)' },
-                { nombre: 'Pack Proyectos', slots: 3, precio: 139.90, antiguo: 195, tag: '', desc: '3 Clases (4 horas con 30 minutos totales)' },
+                { nombre: 'Sesión Única', slots: 1, precio: 54.90, antiguo: 75, tag: '', desc: '1 Clase (1.5h)' },
+                { nombre: 'Dúo Pack', slots: 2, precio: 99.90, antiguo: 140, tag: 'POPULAR', desc: '2 Clases (3h)' },
+                { nombre: 'Pack Proyectos', slots: 3, precio: 139.90, antiguo: 195, tag: '', desc: '3 Clases (4.5h)' },
                 { nombre: 'Bootcamp Mensual', slots: 8, precio: 339.90, antiguo: 480, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
             ]
         };
 
         const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
         const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
-        
-        // HORARIOS BLOQUEADOS EXACTOS BASADOS EN TU UNIVERSIDAD Y TRASLADOS
         const horariosOcupados = [
             "Lun - 08:00 AM", "Lun - 09:30 AM", "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
             "Mié - 03:30 PM", "Mié - 05:00 PM", "Mié - 06:30 PM", "Mié - 08:00 PM",
             "Jue - 08:00 AM", "Jue - 09:30 AM", "Jue - 05:00 PM", "Jue - 06:30 PM", "Jue - 08:00 PM", "Jue - 09:30 PM",
             "Vie - 11:00 AM", "Vie - 12:30 PM", "Vie - 02:00 PM", "Vie - 03:30 PM", "Vie - 05:00 PM", "Vie - 06:30 PM", "Vie - 11:00 PM",
-            "Sáb - 08:00 AM", "Sáb - 09:30 AM", "Sáb - 11:00 AM",
-            "Dom - 11:00 PM"
+            "Sáb - 08:00 AM", "Sáb - 09:30 AM", "Sáb - 11:00 AM", "Dom - 11:00 PM"
         ];
 
         let materiaActual = '';
@@ -355,71 +302,48 @@
             document.getElementById('titulo-materia').innerText = materia;
             const contenedor = document.getElementById('contenedor-planes');
             contenedor.innerHTML = '';
-
             tarifas[materia].forEach(p => {
-                const card = `
-                    <div class="price-card ${p.tag ? 'featured' : ''}">
-                        ${p.tag ? `<div class="featured-tag">${p.tag}</div>` : ''}
-                        <h4>${p.nombre}</h4>
-                        <span class="old-price">S/ ${p.antiguo}.00</span>
-                        <div class="price-amount"><span>S/</span> ${p.precio.toFixed(2)}</div>
-                        <p>${p.desc}</p>
-                        <button class="btn-select" onclick="seleccionarPlan('${p.nombre}', ${p.precio}, ${p.slots}, this)">Seleccionar Plan</button>
-                    </div>`;
-                contenedor.innerHTML += card;
+                contenedor.innerHTML += `<div class="price-card ${p.tag ? 'featured' : ''}">
+                    ${p.tag ? `<div class="featured-tag">${p.tag}</div>` : ''}
+                    <h4>${p.nombre}</h4><span class="old-price">S/ ${p.antiguo}.00</span>
+                    <div class="price-amount"><span>S/</span> ${p.precio.toFixed(2)}</div><p>${p.desc}</p>
+                    <button class="btn-select" onclick="seleccionarPlan('${p.nombre}', ${p.precio}, ${p.slots}, this)">Seleccionar Plan</button></div>`;
             });
-
             document.getElementById('planes-modulo').style.display = 'block';
             document.getElementById('reserva-modulo').style.display = 'none';
             document.getElementById('planes-modulo').scrollIntoView({ behavior: 'smooth' });
         }
 
         function seleccionarPlan(nombre, precio, slots, btn) {
-            planActual = { nombre, precio, slots };
-            seleccionados = [];
-            
-            document.querySelectorAll('.btn-select').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
+            planActual = { nombre, precio, slots }; seleccionados = [];
+            document.querySelectorAll('.btn-select').forEach(b => b.classList.remove('active')); btn.classList.add('active');
             document.getElementById('reserva-modulo').style.display = 'block';
-            document.getElementById('plan-desc').innerText = `Has elegido: ${materiaActual} - ${nombre} (${slots} clases)`;
-            
-            renderizarCalendario();
-            actualizarInstruccion();
+            document.getElementById('plan-desc').innerText = `Elegiste: ${materiaActual} - ${nombre} (${slots} clases)`;
+            renderizarCalendario(); actualizarInstruccion();
             document.getElementById('reserva-modulo').scrollIntoView({ behavior: 'smooth' });
         }
 
         function renderizarCalendario() {
-            const grid = document.getElementById('grid-horarios');
-            grid.innerHTML = '';
-
+            const grid = document.getElementById('grid-horarios'); grid.innerHTML = '';
             dias.forEach(dia => {
                 let col = `<div class="dia-columna"><div class="dia-titulo">${dia}</div>`;
                 bloquesBase.forEach(hora => {
                     const id = `${dia} - ${hora}`;
-                    const estaOcupado = horariosOcupados.includes(id);
-                    const claseExtra = estaOcupado ? 'ocupado' : '';
+                    const claseExtra = horariosOcupados.includes(id) ? 'ocupado' : '';
                     col += `<div class="bloque-hora ${claseExtra}" data-id="${id}" onclick="toggleBloque(this)">${hora}</div>`;
                 });
-                col += `</div>`;
-                grid.innerHTML += col;
+                grid.innerHTML += col + `</div>`;
             });
         }
 
         function toggleBloque(el) {
             if (el.classList.contains('ocupado')) return;
             const id = el.getAttribute('data-id');
-
             if (el.classList.contains('seleccionado')) {
-                el.classList.remove('seleccionado');
-                seleccionados = seleccionados.filter(h => h !== id);
+                el.classList.remove('seleccionado'); seleccionados = seleccionados.filter(h => h !== id);
             } else {
-                if (seleccionados.length >= planActual.slots) {
-                    alert(`Tu plan solo permite elegir ${planActual.slots} horarios.`);
-                    return;
-                }
-                el.classList.add('seleccionado');
-                seleccionados.push(id);
+                if (seleccionados.length >= planActual.slots) return alert(`Límite del plan: ${planActual.slots} clases.`);
+                el.classList.add('seleccionado'); seleccionados.push(id);
             }
             actualizarInstruccion();
         }
@@ -428,29 +352,19 @@
             const faltan = planActual.slots - seleccionados.length;
             const texto = document.getElementById('instruccion-texto');
             const box = document.getElementById('finalizar-box');
-
             if (faltan > 0) {
-                texto.innerText = `👇 Selecciona ${faltan} horario(s) más en el calendario 👇`;
-                texto.style.borderColor = "var(--dorado)";
-                box.style.display = 'none';
+                texto.innerText = `👇 Selecciona ${faltan} horario(s) más 👇`;
+                texto.style.borderColor = "var(--dorado)"; box.style.display = 'none';
             } else {
-                texto.innerText = `✅ ¡Perfecto! Tus horarios están listos. Haz clic abajo para confirmar.`;
-                texto.style.borderColor = "var(--verde-exito)";
-                box.style.display = 'block';
+                texto.innerText = `✅ Horarios listos. Confirma abajo.`;
+                texto.style.borderColor = "var(--verde-exito)"; box.style.display = 'block';
                 generarLinkWhatsApp();
             }
         }
 
         function generarLinkWhatsApp() {
-            let msg = `Hola André, vengo de tu web. Quiero reservar:\n\n`;
-            msg += `📘 *Materia:* ${materiaActual}\n`;
-            msg += `💰 *Plan:* ${planActual.nombre} (S/ ${planActual.precio.toFixed(2)})\n\n`;
-            msg += `🗓️ *Mis Horarios:* \n`;
-            seleccionados.forEach((h, i) => msg += `${i+1}. ${h}\n`);
-            msg += `\n¿Me confirmas la reserva?`;
-
-            const url = `https://wa.me/51970549915?text=${encodeURIComponent(msg)}`;
-            document.getElementById('link-whatsapp-final').href = url;
+            let msg = `Hola André, reservo en tu web:\n📘 *Materia:* ${materiaActual}\n💰 *Plan:* ${planActual.nombre}\n🗓️ *Horarios:* \n` + seleccionados.map((h, i) => `${i+1}. ${h}`).join('\n');
+            document.getElementById('link-whatsapp-final').href = `https://wa.me/51970549915?text=${encodeURIComponent(msg)}`;
         }
     </script>
 </body>
