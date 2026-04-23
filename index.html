@@ -3,530 +3,476 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>André Ríos | Mentoría Académica de Élite</title>
+    <title>André Ríos | Tutoría Privada de Élite</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
             --verde-esmeralda: #062b1a;
-            --verde-claro: #0a4229;
             --dorado: #c5a059;
             --dorado-brillante: #e5c185;
             --blanco-suave: #f4f7f9;
             --texto-oscuro: #1a1a1a;
-            --gris-claro: #e1e1e1;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
+            --rojo-error: #e74c3c;
+            --verde-exito: #27ae60;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: var(--blanco-suave);
             color: var(--texto-oscuro);
-            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-        /* HEADER */
+        /* HEADER & HERO */
         header {
-            background: linear-gradient(135deg, var(--verde-esmeralda) 0%, var(--verde-claro) 100%);
+            background-color: var(--verde-esmeralda);
             color: white;
-            padding: 80px 20px;
+            padding: 80px 20px 60px 20px;
             text-align: center;
-            border-bottom: 5px solid var(--dorado);
+            border-bottom: 4px solid var(--dorado);
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            color: var(--dorado-brillante);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto 20px;
-            color: #e0e0e0;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--dorado);
-            color: var(--verde-esmeralda);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--verde-esmeralda);
-            margin-bottom: 40px;
-        }
-
-        /* TOGGLE MODALIDAD */
-        .toggle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 50px;
-            background: white;
-            padding: 10px;
-            border-radius: 50px;
-            box-shadow: var(--shadow);
-            width: max-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 40px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            color: #777;
-            transition: var(--transition);
-        }
-
-        .toggle-btn.active {
-            background-color: var(--verde-esmeralda);
-            color: var(--dorado-brillante);
-        }
-
-        /* GRID MATERIAS */
-        .grid-materias {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            border-top: 4px solid transparent;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .card:hover, .card.active {
-            transform: translateY(-5px);
-            border-top-color: var(--dorado);
-        }
-
-        .card.grupal {
-            grid-column: 1 / -1;
-            background: linear-gradient(to right, white, #fffdf8);
-        }
-
-        .card h3 {
-            font-size: 2rem;
-            color: var(--verde-esmeralda);
-            margin-bottom: 15px;
-        }
-
-        .card p { color: #555; margin-bottom: 25px; font-size: 0.95rem; }
-
-        .btn-select {
-            background: transparent;
-            border: 2px solid var(--dorado);
-            color: var(--verde-esmeralda);
-            padding: 10px 25px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 100%;
-        }
-
-        .card:hover .btn-select, .card.active .btn-select {
-            background: var(--dorado);
-            color: var(--verde-esmeralda);
-        }
-
-        /* PLANES */
-        #planes-seccion { display: none; margin-top: 50px; }
-        .grid-planes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .plan-card {
-            background: white;
-            border: 1px solid var(--gris-claro);
-            border-radius: 10px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .plan-card:hover, .plan-card.active {
-            border-color: var(--dorado);
-            box-shadow: var(--shadow);
-            transform: scale(1.02);
-        }
-
-        .plan-tag {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--dorado);
-            color: var(--verde-esmeralda);
-            padding: 4px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .plan-precio {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--verde-esmeralda);
-            margin: 15px 0;
+            font-size: 3.8rem;
+            margin: 0;
+            letter-spacing: 2px;
+            color: var(--dorado-brillante);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
+
+        .hero-subtitle {
+            font-size: 1.1rem; letter-spacing: 3px; color: var(--dorado-brillante); margin-top: 10px; margin-bottom: 25px; font-weight: 600; text-transform: uppercase;
+        }
+
+        .diagnostico-badge {
+            display: inline-block; background-color: rgba(197, 160, 89, 0.15); border: 1px solid var(--dorado); padding: 8px 20px; border-radius: 30px; font-weight: 600; color: var(--dorado-brillante); margin-bottom: 25px; font-size: 0.95rem; letter-spacing: 1px;
+        }
+
+        .perfil-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .perfil-intro strong { color: white; font-weight: 600; }
+
+        .btn-linkedin {
+            display: inline-flex; align-items: center; gap: 8px; background-color: transparent;
+            color: var(--dorado); border: 1px solid var(--dorado); padding: 12px 30px;
+            border-radius: 25px; text-decoration: none; font-size: 0.95rem; margin-top: 30px;
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+        }
+        .btn-linkedin:hover { background-color: var(--dorado); color: var(--verde-esmeralda); transform: translateY(-3px); }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
+
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
+        .section-title span { color: var(--dorado); font-size: 1.3rem; display: block; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--dorado); margin: 15px auto; }
+
+        /* TOGGLE DE MODALIDAD */
+        .toggle-wrapper {
+            display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 50px;
+        }
+        .toggle-label { font-size: 1.1rem; font-weight: 600; color: #7f8c8d; transition: color 0.3s; }
+        .toggle-label.active { color: var(--verde-esmeralda); }
         
-        .plan-precio span { font-size: 1rem; font-family: 'Montserrat', sans-serif; }
+        .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #bdc3c7; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        input:checked + .slider { background-color: var(--verde-esmeralda); }
+        input:checked + .slider:before { transform: translateX(26px); }
+
+        /* GRID DE MATERIAS */
+        .areas-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
+        
+        .area-card {
+            background: white; padding: 40px; border-radius: 12px; border-bottom: 4px solid var(--dorado);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06); text-align: center; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            flex: 1 1 300px; max-width: 450px; display: flex; flex-direction: column; position: relative; overflow: hidden;
+        }
+        .area-card.wide { flex: 1 1 100%; max-width: 930px; border-bottom-color: var(--verde-esmeralda); }
+        
+        .area-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
+        .area-card h3 { font-family: 'Playfair Display', serif; color: var(--verde-esmeralda); font-size: 2rem; margin-top: 0; margin-bottom: 20px; }
+        .area-card ul { list-style: none; padding: 0; text-align: left; margin: 0 0 25px 0; color: #555; flex-grow: 1; }
+        .area-card li { margin-bottom: 12px; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+        .area-card li::before { content: '•'; color: var(--dorado); font-weight: bold; font-size: 1.5rem; line-height: 0; }
+        .area-card p.desc { color: #666; font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
+
+        .btn-materia {
+            background-color: var(--dorado); color: var(--verde-esmeralda); border: none; padding: 15px 25px;
+            font-weight: 700; cursor: pointer; border-radius: 6px; transition: 0.3s; text-transform: uppercase; width: 100%; letter-spacing: 1px; font-size: 0.95rem; display: inline-block; box-sizing: border-box;
+        }
+        .btn-materia:hover { background-color: var(--verde-esmeralda); color: white; }
+
+        /* PLANES Y PRECIOS */
+        #planes-modulo { display: none; padding-top: 40px; border-top: 1px solid #eaeaea; }
+        .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
+
+        .price-card {
+            background: white; padding: 35px 25px; text-align: center; border-radius: 12px;
+            border: 1px solid #e1e1e1; transition: all 0.3s; position: relative; display: flex; flex-direction: column; justify-content: space-between; flex: 1 1 240px; max-width: 270px;
+        }
+        .price-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--dorado); }
+        .price-card.featured { border: 2px solid var(--dorado); background-color: #fffcf5; transform: scale(1.03); z-index: 1; }
+        .price-card.featured:hover { transform: scale(1.03) translateY(-8px); }
+        
+        .featured-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--dorado); color: var(--verde-esmeralda); padding: 6px 20px; font-size: 0.8rem; font-weight: 700; border-radius: 20px; z-index: 2; width: max-content; letter-spacing: 1px; }
+        .discount-badge { position: absolute; top: 15px; right: -15px; background: var(--rojo-error); color: white; padding: 6px 15px; font-size: 0.8rem; font-weight: bold; border-radius: 3px; transform: rotate(15deg); box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 10; }
+        
+        .price-card h4 { font-size: 1.2rem; margin: 0; color: var(--verde-esmeralda); text-transform: uppercase; letter-spacing: 1px; }
+        .price-amount { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--verde-esmeralda); margin: 15px 0 5px 0; line-height: 1; }
+        .price-amount span { font-size: 1.2rem; font-family: 'Montserrat', sans-serif; vertical-align: super; }
+        .price-card p { font-size: 0.95rem; color: #666; margin-bottom: 25px; flex-grow: 1; line-height: 1.5; }
+
+        .btn-select { background-color: transparent; border: 2px solid var(--verde-esmeralda); color: var(--verde-esmeralda); padding: 12px 20px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 700; border-radius: 6px; transition: all 0.3s; width: 100%; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-select:hover, .btn-select.active { background-color: var(--verde-esmeralda); color: white; }
 
         /* CALENDARIO */
-        #calendario-seccion { display: none; margin-top: 50px; }
-        .info-reserva {
-            text-align: center;
-            background: #fffdf8;
-            border: 1px dashed var(--dorado);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            color: var(--verde-esmeralda);
-            font-weight: 600;
-        }
+        .reserva-module { background: white; padding: 50px 20px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 6px solid var(--dorado); margin-bottom: 80px; display: none; }
+        .status-plan { color: var(--dorado); font-weight: 700; margin-bottom: 25px; font-size: 1.3rem; text-align: center; }
 
-        .grid-calendario {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
+        .calendario-grid { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 20px; justify-content: center; }
+        @media (max-width: 1000px) { .calendario-grid { justify-content: flex-start; } }
 
-        .dia-col { flex: 1; min-width: 120px; display: flex; flex-direction: column; gap: 10px; }
-        .dia-title { background: var(--verde-esmeralda); color: white; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem;}
-        .slot {
-            background: white; border: 1px solid var(--gris-claro); padding: 10px;
-            text-align: center; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.2s;
-        }
-        .slot:hover:not(.ocupado) { border-color: var(--dorado); background: #fffdf8; }
-        .slot.selected { background: var(--dorado); color: var(--verde-esmeralda); border-color: var(--dorado); }
-        .slot.ocupado { background: #eee; color: #aaa; text-decoration: line-through; cursor: not-allowed; border-color: transparent; }
+        .dia-columna { flex: 1; min-width: 135px; max-width: 145px; display: flex; flex-direction: column; gap: 10px; }
+        .dia-titulo { background-color: var(--verde-esmeralda); color: white; text-align: center; padding: 12px 0; border-radius: 6px; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* WHATSAPP CTA */
-        .cta-container { text-align: center; margin-top: 40px; display: none; }
-        .btn-whatsapp {
-            background-color: #25D366; color: white; text-decoration: none; padding: 18px 40px;
-            border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: var(--transition);
-        }
-        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4); }
+        .bloque-hora { background-color: #f8f9fa; border: 1px solid #ddd; padding: 12px; text-align: center; border-radius: 6px; cursor: pointer; transition: 0.2s; font-size: 0.9rem; font-weight: 600; color: #444; }
+        .bloque-hora:hover:not(.ocupado) { border-color: var(--dorado); background: #fffcf5; color: var(--verde-esmeralda); }
+        .bloque-hora.seleccionado { background-color: var(--dorado); color: white; border-color: var(--dorado); transform: scale(1.05); font-weight: 700; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); }
+        .bloque-hora.ocupado { background-color: #f1f2f6; color: #bdc3c7; cursor: not-allowed; text-decoration: line-through; border: 1px dashed #e0e0e0; }
 
-        /* FAQ & FOOTER */
-        .faq-section { margin-top: 80px; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 8px; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .faq-item h4 { color: var(--verde-esmeralda); margin-bottom: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
-        .faq-item p { color: #666; font-size: 0.95rem; }
+        .instruccion-bloques { text-align: center; background: #fffcf5; border: 2px dashed var(--dorado); padding: 18px; border-radius: 8px; margin-bottom: 30px; color: var(--verde-esmeralda); font-weight: 600; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.1rem; transition: all 0.3s; }
 
-        footer {
-            background: var(--verde-esmeralda);
-            color: white; text-align: center; padding: 60px 20px; margin-top: 80px;
-            border-top: 5px solid var(--dorado);
-        }
-        footer p { margin-bottom: 10px; color: #e0e0e0; }
-        .pet-friendly { color: var(--dorado-brillante); font-style: italic; margin-top: 20px; font-size: 0.9rem;}
+        .checkout-box { text-align: center; margin-top: 40px; display: none; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .btn-whatsapp-final { background-color: #25D366; color: white; text-decoration: none; padding: 18px 45px; border-radius: 40px; font-weight: 800; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); transition: 0.3s; }
+        .btn-whatsapp-final:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
 
-        @media (max-width: 768px) {
-            .grid-materias { grid-template-columns: 1fr; }
-            header h1 { font-size: 2.5rem; }
-            .toggle-container { flex-direction: column; border-radius: 12px; }
-            .toggle-btn { width: 100%; border-radius: 8px; }
-        }
+        /* FAQ SECTION */
+        .faq-section { max-width: 800px; margin: 0 auto 80px auto; }
+        details { background: white; border: 1px solid #eee; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); overflow: hidden; }
+        summary { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--verde-esmeralda); padding: 20px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; color: var(--dorado); font-size: 1.5rem; font-family: 'Montserrat'; transition: 0.3s; }
+        details[open] summary::after { content: '−'; transform: rotate(90deg); }
+        details p { padding: 0 20px 20px 20px; margin: 0; color: #555; line-height: 1.6; }
+
+        /* FOOTER */
+        footer { background-color: var(--verde-esmeralda); color: white; padding: 60px 20px; text-align: center; border-top: 4px solid var(--dorado); }
+        footer h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 0; color: var(--dorado-brillante); margin-bottom: 15px; }
+        .footer-info { font-size: 1.1rem; font-weight: 300; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; }
+        .pet-friendly { background: rgba(255,255,255,0.05); border: 1px dashed var(--dorado); padding: 15px 25px; border-radius: 8px; display: inline-block; font-size: 0.95rem; font-style: italic; max-width: 600px; color: #ecf0f1; }
+        .pet-friendly strong { color: var(--dorado-brillante); font-style: normal; }
+
     </style>
 </head>
 <body>
 
     <header>
         <h1>André Ríos</h1>
-        <p class="subtitle">Ingeniería, Lógica y Oratoria aplicadas a tu aprendizaje.</p>
-        <div class="badge">Metodología de Diagnóstico de 30 min</div>
+        <p class="hero-subtitle">Tutoría Privada de Élite</p>
+        
+        <div class="diagnostico-badge">
+            ⚡ INCLUYE METODOLOGÍA DE DIAGNÓSTICO INICIAL DE 30 MIN
+        </div>
+
+        <div class="perfil-intro">
+            <p>Estudiante de <strong>Ingeniería de Sistemas en la Universidad de Lima</strong>.<br>No dicto clases aburridas. Utilizo mi formación analítica en ingeniería combinada con herramientas de <strong>oratoria teatral</strong> para asegurar que aprendas, retengas y domines la materia de verdad.</p>
+            <a href="https://www.linkedin.com/in/andrerioss/" target="_blank" class="btn-linkedin">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                Mi Perfil Profesional
+            </a>
+        </div>
     </header>
 
     <div class="container">
-        <div class="toggle-container">
-            <button class="toggle-btn active" onclick="setModalidad('Presencial')" id="btn-presencial">📍 Presencial (Surco/Molina/Borja)</button>
-            <button class="toggle-btn" onclick="setModalidad('Virtual')" id="btn-virtual">💻 Virtual (Todo el Perú)</button>
+        
+        <h2 class="section-title"><span>Paso 1</span>Modalidad y Materia</h2>
+        
+        <div class="toggle-wrapper">
+            <span id="label-virtual" class="toggle-label">💻 Virtual (Todo el Perú)</span>
+            <label class="switch">
+                <input type="checkbox" id="modalidad-toggle" onchange="cambiarModalidad()" checked>
+                <span class="slider"></span>
+            </label>
+            <span id="label-presencial" class="toggle-label active">📍 Presencial (Surco/Molina/Borja)</span>
         </div>
 
-        <h2 class="section-title">Elige tu Área de Enfoque</h2>
-        <div class="grid-materias">
-            <div class="card" onclick="seleccionarMateria('Matemáticas', this)">
+        <div class="areas-grid">
+            <div class="area-card">
                 <h3>Matemáticas</h3>
-                <p>Cálculo, Álgebra, Razonamiento. De lo abstracto a lo práctico con lógica de ingeniería.</p>
-                <button class="btn-select">Ver Precios</button>
+                <ul>
+                    <li>Matemática General</li>
+                    <li>Álgebra y Aritmética</li>
+                    <li>Razonamiento Matemático</li>
+                    <li>Cálculo 1 y Álgebra Lineal</li>
+                    <li>Nivel Primaria, Secundaria y PreU</li>
+                </ul>
+                <button class="btn-materia" onclick="cargarPlanes('Matemáticas')">Ver Promociones</button>
             </div>
             
-            <div class="card" onclick="seleccionarMateria('Python', this)">
-                <h3>Python</h3>
-                <p>Aprende a programar desde cero. Algoritmos estructurados y buenas prácticas.</p>
-                <button class="btn-select">Ver Precios</button>
+            <div class="area-card">
+                <h3>Programación</h3>
+                <ul>
+                    <li>Python para principiantes</li>
+                    <li>Lógica de Programación</li>
+                    <li>Algoritmos Estructurados</li>
+                    <li>Soporte en proyectos académicos</li>
+                    <li>Preparación para la universidad</li>
+                </ul>
+                <button class="btn-materia" onclick="cargarPlanes('Python')">Ver Promociones</button>
             </div>
 
-            <div class="card grupal" onclick="seleccionarMateria('Grupal', this)">
-                <h3>Sesiones Grupales</h3>
-                <p>Arma tu grupo de estudio. El precio se mantiene igual sea presencial o virtual.</p>
-                <button class="btn-select">Ver Precios Grupales</button>
+            <div class="area-card wide">
+                <h3 style="font-size: 2.2rem; margin-bottom: 10px;">👥 Sesiones Grupales</h3>
+                <p class="desc" style="margin-bottom: 15px;">Aprende con tus amigos. La tarifa es fija y se divide entre todos los integrantes. Ideal para prepararse antes de un examen final o parcial. <em>El precio es el mismo para modalidad Presencial o Virtual.</em></p>
+                <button class="btn-materia" style="width: auto; padding: 15px 50px;" onclick="cargarPlanes('Grupales')">Ver Precios de Grupos</button>
             </div>
         </div>
 
-        <div id="planes-seccion">
-            <h2 class="section-title">Planes Disponibles</h2>
-            <div class="grid-planes" id="contenedor-planes">
-                </div>
+        <div id="planes-modulo">
+            <h2 class="section-title"><span>Paso 2</span>Elige tu Plan para <span id="titulo-materia" style="display:inline; color:var(--verde-esmeralda);"></span></h2>
+            <div class="pricing-grid" id="contenedor-planes"></div>
         </div>
 
-        <div id="calendario-seccion">
-            <h2 class="section-title">Reserva tus Horarios</h2>
-            <div class="info-reserva" id="info-reserva-texto"></div>
-            <div class="grid-calendario" id="grid-calendario">
-                </div>
-            <div class="cta-container" id="cta-final">
-                <a href="#" id="link-wa" class="btn-whatsapp" target="_blank">
-                    📱 Enviar Reserva a André
+        <div id="reserva-modulo" class="reserva-module">
+            <h2 class="section-title" style="margin-bottom: 15px;"><span>Paso 3</span>Agenda tus Horarios</h2>
+            <div class="status-plan" id="plan-desc"></div>
+            <div class="instruccion-bloques" id="instruccion-texto">👇 Selecciona tus horarios en el calendario de abajo 👇</div>
+            
+            <div class="calendario-grid" id="grid-horarios"></div>
+            
+            <div class="checkout-box" id="finalizar-box">
+                <a href="#" id="link-whatsapp-final" class="btn-whatsapp-final" target="_blank">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12.031 0c-6.627 0-12.031 5.403-12.031 12.031 0 2.634.855 5.083 2.301 7.106l-1.536 5.617 5.748-1.512c1.992 1.258 4.359 1.988 6.883 1.988 6.627 0 12.031-5.403 12.031-12.031s-5.404-12.031-12.031-12.031zm-4.364 7.424c.241-.005.513-.005.743.003.224.009.431.02.607.214.39.421 1.248 1.344 1.248 1.344.186.208.204.423.064.67-.04.07-.101.157-.183.262-.081.106-.188.232-.27.337-.091.117-.189.243-.075.433.111.19.497.809 1.023 1.267.68.592 1.282.781 1.488.882.203.1.428.082.585-.062.158-.145.683-.794.867-1.066.184-.271.369-.227.604-.131.236.096 1.485.702 1.741.83.256.127.428.191.492.296.064.105.064.614-.148 1.205-.213.605-1.229 1.155-1.688 1.202-.459.047-.946.126-3.082-.71-2.56-1.002-4.186-3.649-4.312-3.818-.125-.168-1.027-1.368-1.027-2.611 0-1.244.646-1.854.871-2.091.224-.236.488-.295.649-.295z"/></svg>
+                    Confirmar por WhatsApp
                 </a>
             </div>
         </div>
 
+        <h2 class="section-title" style="margin-top: 80px;"><span>FAQ</span>Preguntas Frecuentes</h2>
         <div class="faq-section">
-            <h2 class="section-title">Preguntas Frecuentes</h2>
-            <div class="faq-item">
-                <h4>¿En qué consiste el Diagnóstico de 30 min?</h4>
-                <p>Es una evaluación inicial rápida donde analizo tu nivel actual, identifico las bases que faltan reforzar y estructuramos el plan de estudio ideal para ti.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Cómo funciona el pago?</h4>
-                <p>El aprendizaje se demuestra. Los pagos se realizan <strong>al finalizar cada sesión</strong> (o la primera sesión del pack). Acepto Yape, Plin, Transferencia o Efectivo (solo presencial).</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿Por qué las presenciales están limitadas a 3 distritos?</h4>
-                <p>Para garantizar puntualidad y calidad de energía en la enseñanza, solo me movilizo en Surco, La Molina y San Borja. Si estás en otro distrito, la modalidad Virtual es igual de efectiva gracias a mi setup de streaming y pizarra digital.</p>
-            </div>
+            <details>
+                <summary>¿En qué consiste el Diagnóstico de 30 minutos?</summary>
+                <p>Es una sesión inicial <strong>completamente gratuita</strong> incluida en tu primer plan. Evaluamos tu nivel actual, identificamos lagunas de conocimiento (usando lógica de ingeniería) y trazamos un plan de ataque personalizado antes de empezar a cobrar la clase oficial.</p>
+            </details>
+            <details>
+                <summary>¿Cuáles son los métodos de pago?</summary>
+                <p>Para tu tranquilidad y confianza, <strong>el pago se realiza al finalizar cada sesión</strong>. Acepto Yape, Plin o pago en Efectivo (si es presencial). Nada de pagos por adelantado a ciegas.</p>
+            </details>
+            <details>
+                <summary>¿Qué zonas cubres en modalidad presencial?</summary>
+                <p>Exclusivamente Santiago de Surco, La Molina y San Borja. Si estás fuera de este radio, te invito a probar la Modalidad Virtual, que tiene un descuento especial y la misma calidad de enseñanza garantizada.</p>
+            </details>
+            <details>
+                <summary>¿Cómo funcionan los grupos?</summary>
+                <p>Si tienes amigos con el mismo problema en un curso, armen un grupo (Trío, Squad o Full). El precio que ves en la tabla es el total por la clase, se lo dividen entre ustedes. Es la opción más rentable para prepararse para parciales o finales.</p>
+            </details>
         </div>
+
     </div>
 
     <footer>
-        <h2 style="font-size: 2rem; margin-bottom: 10px; color: var(--dorado-brillante);">André Ríos</h2>
-        <p>📍 Base de Operaciones: Santiago de Surco, Lima.</p>
-        <p>📱 WhatsApp Directo: +51 970 549 915</p>
-        <p class="pet-friendly">🐾 Pet Friendly: Fan de los perros, ¡como mi perro peruano Falco!</p>
+        <h3>André Ríos Mentorías</h3>
+        <div class="footer-info">
+            📍 Zona de Cobertura Presencial: Surco, La Molina, San Borja<br>
+            💻 Cobertura Virtual: Todo el Perú<br>
+            💵 Medios de Pago: Yape / Plin / Efectivo al terminar la sesión.
+        </div>
+        <div class="pet-friendly">
+            🐾 <strong>Pet Friendly:</strong> Ya sea en modalidad presencial en tu casa o virtual, soy gran fan de los animales. Tengo un perro peruano llamado Falco, ¡así que tus mascotas siempre son bienvenidas durante la clase!
+        </div>
     </footer>
 
     <script>
-        // BASE DE DATOS DE PRECIOS
-        const precios = {
+        // LÓGICA DE PRECIOS DINÁMICOS
+        const tarifas = {
             'Matemáticas': {
                 'Presencial': [
-                    { nombre: 'Sesión Única', slots: 1, precio: 44.90, desc: '1 Clase de 1.5h' },
-                    { nombre: 'Dúo Pack', slots: 2, precio: 85.00, desc: '2 Clases de 1.5h', tag: 'POPULAR' },
-                    { nombre: 'Intensivo', slots: 8, precio: 320.00, desc: '8 Clases al mes', tag: 'MEJOR VALOR' }
+                    { nombre: 'Sesión Única', slots: 1, precio: 44.90, antiguo: 65, tag: '', desc: '1 Clase (1.5h)' },
+                    { nombre: 'Dúo Pack', slots: 2, precio: 79.90, antiguo: 115, tag: 'POPULAR', desc: '2 Clases (3h)' },
+                    { nombre: 'Pack Exámenes', slots: 3, precio: 114.90, antiguo: 160, tag: '', desc: '3 Clases (4.5h)' },
+                    { nombre: 'Mensual Intensivo', slots: 8, precio: 279.90, antiguo: 380, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
                 ],
                 'Virtual': [
-                    { nombre: 'Sesión Única', slots: 1, precio: 39.00, desc: '1 Clase de 1.5h' },
-                    { nombre: 'Dúo Pack', slots: 2, precio: 70.00, desc: '2 Clases de 1.5h', tag: 'POPULAR' },
-                    { nombre: 'Intensivo', slots: 8, precio: 260.00, desc: '8 Clases al mes', tag: 'MEJOR VALOR' }
+                    { nombre: 'Sesión Única', slots: 1, precio: 39.00, antiguo: 55, tag: '', desc: '1 Clase (1.5h)' },
+                    { nombre: 'Dúo Pack', slots: 2, precio: 69.90, antiguo: 100, tag: 'POPULAR', desc: '2 Clases (3h)' },
+                    { nombre: 'Pack Exámenes', slots: 3, precio: 99.90, antiguo: 140, tag: '', desc: '3 Clases (4.5h)' },
+                    { nombre: 'Mensual Intensivo', slots: 8, precio: 249.90, antiguo: 340, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
                 ]
             },
             'Python': {
                 'Presencial': [
-                    { nombre: 'Sesión Única', slots: 1, precio: 54.90, desc: '1 Clase de 1.5h' },
-                    { nombre: 'Dúo Pack', slots: 2, precio: 100.00, desc: '2 Clases de 1.5h', tag: 'POPULAR' },
-                    { nombre: 'Bootcamp', slots: 8, precio: 390.00, desc: '8 Clases al mes', tag: 'MEJOR VALOR' }
+                    { nombre: 'Sesión Única', slots: 1, precio: 54.90, antiguo: 75, tag: '', desc: '1 Clase (1.5h)' },
+                    { nombre: 'Dúo Pack', slots: 2, precio: 99.90, antiguo: 140, tag: 'POPULAR', desc: '2 Clases (3h)' },
+                    { nombre: 'Pack Proyectos', slots: 3, precio: 139.90, antiguo: 195, tag: '', desc: '3 Clases (4.5h)' },
+                    { nombre: 'Bootcamp Mensual', slots: 8, precio: 339.90, antiguo: 480, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
                 ],
                 'Virtual': [
-                    { nombre: 'Sesión Única', slots: 1, precio: 49.00, desc: '1 Clase de 1.5h' },
-                    { nombre: 'Dúo Pack', slots: 2, precio: 90.00, desc: '2 Clases de 1.5h', tag: 'POPULAR' },
-                    { nombre: 'Bootcamp', slots: 8, precio: 350.00, desc: '8 Clases al mes', tag: 'MEJOR VALOR' }
+                    { nombre: 'Sesión Única', slots: 1, precio: 49.00, antiguo: 65, tag: '', desc: '1 Clase (1.5h)' },
+                    { nombre: 'Dúo Pack', slots: 2, precio: 89.90, antiguo: 120, tag: 'POPULAR', desc: '2 Clases (3h)' },
+                    { nombre: 'Pack Proyectos', slots: 3, precio: 129.90, antiguo: 175, tag: '', desc: '3 Clases (4.5h)' },
+                    { nombre: 'Bootcamp Mensual', slots: 8, precio: 299.90, antiguo: 420, tag: 'MEJOR VALOR', desc: '8 Clases al mes' }
                 ]
             },
-            'Grupal': {
-                'Fijo': [
-                    { nombre: 'Trío', slots: 1, precio: 100.00, desc: '3 Estudiantes (S/ 33 c/u)' },
-                    { nombre: 'Squad', slots: 1, precio: 150.00, desc: '5 Estudiantes (S/ 30 c/u)', tag: 'POPULAR' },
-                    { nombre: 'Full Group', slots: 1, precio: 200.00, desc: '8 Estudiantes (S/ 25 c/u)', tag: 'MEJOR VALOR' }
+            'Grupales': {
+                'Presencial': [
+                    { nombre: 'Trío (3 pers)', slots: 1, precio: 100.00, antiguo: 135, tag: '', desc: '1 Clase (1.5h). S/ 33 c/u' },
+                    { nombre: 'Squad (5 pers)', slots: 1, precio: 150.00, antiguo: 225, tag: 'POPULAR', desc: '1 Clase (1.5h). S/ 30 c/u' },
+                    { nombre: 'Full Group (8 pers)', slots: 1, precio: 200.00, antiguo: 360, tag: 'MEJOR VALOR', desc: '1 Clase (1.5h). S/ 25 c/u' }
+                ],
+                'Virtual': [
+                    { nombre: 'Trío (3 pers)', slots: 1, precio: 100.00, antiguo: 135, tag: '', desc: '1 Clase (1.5h). S/ 33 c/u' },
+                    { nombre: 'Squad (5 pers)', slots: 1, precio: 150.00, antiguo: 225, tag: 'POPULAR', desc: '1 Clase (1.5h). S/ 30 c/u' },
+                    { nombre: 'Full Group (8 pers)', slots: 1, precio: 200.00, antiguo: 360, tag: 'MEJOR VALOR', desc: '1 Clase (1.5h). S/ 25 c/u' }
                 ]
             }
         };
 
-        // DATOS DEL CALENDARIO
-        const diasSemana = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-        const horasBase = ['16:00', '17:30', '19:00', '20:30'];
-        const ocupadosSimulados = ['Lun-16:00', 'Mié-19:00', 'Vie-17:30'];
+        const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
+        const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+        
+        // Bloqueos de Universidad ULima y Traslados
+        const horariosOcupados = [
+            "Lun - 08:00 AM", "Lun - 09:30 AM", "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
+            "Mié - 03:30 PM", "Mié - 05:00 PM", "Mié - 06:30 PM", "Mié - 08:00 PM",
+            "Jue - 08:00 AM", "Jue - 09:30 AM", "Jue - 05:00 PM", "Jue - 06:30 PM", "Jue - 08:00 PM", "Jue - 09:30 PM",
+            "Vie - 11:00 AM", "Vie - 12:30 PM", "Vie - 02:00 PM", "Vie - 03:30 PM", "Vie - 05:00 PM", "Vie - 06:30 PM", "Vie - 11:00 PM",
+            "Sáb - 08:00 AM", "Sáb - 09:30 AM", "Sáb - 11:00 AM", "Dom - 11:00 PM"
+        ];
 
-        // ESTADO GLOBAL
-        let modalidadActual = 'Presencial';
         let materiaActual = '';
         let planActual = null;
-        let horariosSeleccionados = [];
+        let seleccionados = [];
+        let modalidadActual = 'Presencial';
 
-        // FUNCIONES
-        function setModalidad(mod) {
-            modalidadActual = mod;
-            document.getElementById('btn-presencial').classList.toggle('active', mod === 'Presencial');
-            document.getElementById('btn-virtual').classList.toggle('active', mod === 'Virtual');
+        function cambiarModalidad() {
+            const isPresencial = document.getElementById('modalidad-toggle').checked;
+            modalidadActual = isPresencial ? 'Presencial' : 'Virtual';
             
+            document.getElementById('label-presencial').classList.toggle('active', isPresencial);
+            document.getElementById('label-virtual').classList.toggle('active', !isPresencial);
+
+            // Si ya seleccionó una materia, recargar los precios instantáneamente
             if (materiaActual) {
-                renderizarPlanes();
-                reiniciarCalendario();
+                cargarPlanes(materiaActual);
+                document.getElementById('reserva-modulo').style.display = 'none';
             }
         }
 
-        function seleccionarMateria(materia, element) {
+        function cargarPlanes(materia) {
             materiaActual = materia;
-            document.querySelectorAll('.grid-materias .card').forEach(c => c.classList.remove('active'));
-            element.classList.add('active');
-            
-            document.getElementById('planes-seccion').style.display = 'block';
-            renderizarPlanes();
-            reiniciarCalendario();
-            document.getElementById('planes-seccion').scrollIntoView();
-        }
-
-        function renderizarPlanes() {
+            document.getElementById('titulo-materia').innerText = `${materia} (${modalidadActual})`;
             const contenedor = document.getElementById('contenedor-planes');
             contenedor.innerHTML = '';
             
-            // Lógica: Si es grupal, el precio es fijo. Si no, depende de la modalidad.
-            const dataPlanes = (materiaActual === 'Grupal') 
-                ? precios[materiaActual]['Fijo'] 
-                : precios[materiaActual][modalidadActual];
+            const planesMostrar = tarifas[materia][modalidadActual];
 
-            dataPlanes.forEach(p => {
-                const tagHtml = p.tag ? `<div class="plan-tag">${p.tag}</div>` : '';
+            planesMostrar.forEach(p => {
                 contenedor.innerHTML += `
-                    <div class="plan-card">
-                        ${tagHtml}
-                        <h4 style="font-size:1.2rem; color:var(--verde-esmeralda);">${p.nombre}</h4>
-                        <div class="plan-precio"><span>S/</span> ${p.precio.toFixed(2)}</div>
-                        <p style="color:#666; font-size:0.9rem; margin-bottom:20px;">${p.desc}</p>
-                        <button class="btn-select" onclick="seleccionarPlan('${p.nombre}', ${p.slots}, this)">Elegir Plan</button>
-                    </div>
-                `;
+                    <div class="price-card ${p.tag ? 'featured' : ''}">
+                        ${p.tag ? `<div class="featured-tag">${p.tag}</div>` : ''}
+                        <h4>${p.nombre}</h4>
+                        <span class="old-price">S/ ${p.antiguo}.00</span>
+                        <div class="price-amount"><span>S/</span> ${p.precio.toFixed(2)}</div>
+                        <p>${p.desc}</p>
+                        <button class="btn-select" onclick="seleccionarPlan('${p.nombre}', ${p.precio}, ${p.slots}, this)">Seleccionar Plan</button>
+                    </div>`;
             });
-        }
-
-        function seleccionarPlan(nombre, slots, element) {
-            planActual = { nombre, slots };
             
-            document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('active'));
-            element.parentElement.classList.add('active');
-
-            document.getElementById('calendario-seccion').style.display = 'block';
-            reiniciarCalendario();
-            renderizarCalendario();
-            actualizarUIReserva();
-            document.getElementById('calendario-seccion').scrollIntoView();
+            document.getElementById('planes-modulo').style.display = 'block';
+            document.getElementById('reserva-modulo').style.display = 'none';
+            document.getElementById('planes-modulo').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function reiniciarCalendario() {
-            horariosSeleccionados = [];
-            document.getElementById('cta-final').style.display = 'none';
+        function seleccionarPlan(nombre, precio, slots, btn) {
+            planActual = { nombre, precio, slots }; 
+            seleccionados = [];
+            
+            document.querySelectorAll('.btn-select').forEach(b => b.classList.remove('active')); 
+            btn.classList.add('active');
+            
+            document.getElementById('reserva-modulo').style.display = 'block';
+            document.getElementById('plan-desc').innerText = `Elegiste: ${materiaActual} | ${modalidadActual} | ${nombre}`;
+            
+            renderizarCalendario(); 
+            actualizarInstruccion();
+            document.getElementById('reserva-modulo').scrollIntoView({ behavior: 'smooth' });
         }
 
         function renderizarCalendario() {
-            const grid = document.getElementById('grid-calendario');
+            const grid = document.getElementById('grid-horarios'); 
             grid.innerHTML = '';
-
-            diasSemana.forEach(dia => {
-                let htmlCol = `<div class="dia-col"><div class="dia-title">${dia}</div>`;
-                horasBase.forEach(hora => {
-                    const idSlot = `${dia}-${hora}`;
-                    const esOcupado = ocupadosSimulados.includes(idSlot);
-                    const claseExtra = esOcupado ? 'ocupado' : '';
-                    htmlCol += `<div class="slot ${claseExtra}" id="${idSlot}" onclick="toggleSlot('${idSlot}', this)">${hora}</div>`;
+            dias.forEach(dia => {
+                let col = `<div class="dia-columna"><div class="dia-titulo">${dia}</div>`;
+                bloquesBase.forEach(hora => {
+                    const id = `${dia} - ${hora}`;
+                    const claseExtra = horariosOcupados.includes(id) ? 'ocupado' : '';
+                    col += `<div class="bloque-hora ${claseExtra}" data-id="${id}" onclick="toggleBloque(this)">${hora}</div>`;
                 });
-                htmlCol += `</div>`;
-                grid.innerHTML += htmlCol;
+                grid.innerHTML += col + `</div>`;
             });
         }
 
-        function toggleSlot(id, element) {
-            if (element.classList.contains('ocupado')) return;
-
-            if (element.classList.contains('selected')) {
-                element.classList.remove('selected');
-                horariosSeleccionados = horariosSeleccionados.filter(h => h !== id);
+        function toggleBloque(el) {
+            if (el.classList.contains('ocupado')) return;
+            const id = el.getAttribute('data-id');
+            
+            if (el.classList.contains('seleccionado')) {
+                el.classList.remove('seleccionado'); 
+                seleccionados = seleccionados.filter(h => h !== id);
             } else {
-                if (horariosSeleccionados.length >= planActual.slots) {
-                    alert(`Tu plan es de ${planActual.slots} sesión(es). Ya seleccionaste el máximo.`);
+                if (seleccionados.length >= planActual.slots) {
+                    alert(`Límite alcanzado. Tu plan incluye exactamente ${planActual.slots} bloque(s) horario(s).`);
                     return;
                 }
-                element.classList.add('selected');
-                horariosSeleccionados.push(id);
+                el.classList.add('seleccionado'); 
+                seleccionados.push(id);
             }
-            actualizarUIReserva();
+            actualizarInstruccion();
         }
 
-        function actualizarUIReserva() {
-            const faltan = planActual.slots - horariosSeleccionados.length;
-            const infoText = document.getElementById('info-reserva-texto');
-            const cta = document.getElementById('cta-final');
-
+        function actualizarInstruccion() {
+            const faltan = planActual.slots - seleccionados.length;
+            const texto = document.getElementById('instruccion-texto');
+            const box = document.getElementById('finalizar-box');
+            
             if (faltan > 0) {
-                infoText.innerText = `Has seleccionado ${horariosSeleccionados.length} horario(s). Faltan ${faltan} para tu plan de ${planActual.nombre}.`;
-                infoText.style.borderColor = "var(--dorado)";
-                infoText.style.color = "var(--verde-esmeralda)";
-                cta.style.display = 'none';
+                texto.innerText = `👇 Te falta seleccionar ${faltan} horario(s) más en el calendario 👇`;
+                texto.style.borderColor = "var(--dorado)"; 
+                box.style.display = 'none';
             } else {
-                infoText.innerText = `¡Perfecto! Has completado tus horarios. Envía la solicitud para confirmar.`;
-                infoText.style.borderColor = "#27ae60";
-                infoText.style.color = "#27ae60";
-                cta.style.display = 'block';
+                texto.innerText = `✅ ¡Perfecto! Horarios listos. Confirma tu reserva abajo.`;
+                texto.style.borderColor = "var(--verde-exito)"; 
+                box.style.display = 'block';
                 generarLinkWhatsApp();
             }
         }
 
         function generarLinkWhatsApp() {
-            const telf = "51970549915";
-            let horariosFormateados = horariosSeleccionados.map((h, i) => `   ${i+1}. ${h.replace('-', ' a las ')}`).join('\n');
-            
-            let mensaje = `¡Hola André! 🚀 Vengo de tu web y quiero reservar una tutoría.\n\n` +
-                          `📘 *Materia:* ${materiaActual}\n` +
-                          `📍 *Modalidad:* ${modalidadActual}\n` +
-                          `💳 *Plan Elegido:* ${planActual.nombre}\n\n` +
-                          `🗓️ *Mis Horarios Seleccionados:*\n${horariosFormateados}\n\n` +
-                          `¿Me confirmas disponibilidad? Quedo atento.`;
-            
-            document.getElementById('link-wa').href = `https://wa.me/${telf}?text=${encodeURIComponent(mensaje)}`;
+            let msg = `Hola André, vengo de tu web. Me interesa agendar el Diagnóstico de 30 min y reservar mi plan:\n\n`;
+            msg += `📍 *Modalidad:* ${modalidadActual}\n`;
+            msg += `📘 *Materia:* ${materiaActual}\n`;
+            msg += `💰 *Plan:* ${planActual.nombre} (S/ ${planActual.precio.toFixed(2)})\n\n`;
+            msg += `🗓️ *Mis Horarios Seleccionados:* \n`;
+            seleccionados.forEach((h, i) => msg += `${i+1}. ${h}\n`);
+            msg += `\n¿Me confirmas la disponibilidad?`;
+
+            document.getElementById('link-whatsapp-final').href = `https://wa.me/51970549915?text=${encodeURIComponent(msg)}`;
         }
     </script>
 </body>
