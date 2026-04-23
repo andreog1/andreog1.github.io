@@ -66,22 +66,22 @@
         .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
         .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
         .section-title span { color: var(--dorado); font-size: 1.3rem; display: block; font-family: 'Montserrat', sans-serif; margin-bottom: 10px; letter-spacing: 2px; text-transform: uppercase; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--dorado); margin: 15px auto; }
 
-        /* TOGGLE DE MODALIDAD */
-        .toggle-wrapper { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 50px; }
-        .toggle-label { font-size: 1.1rem; font-weight: 600; color: #7f8c8d; transition: color 0.3s; text-align: center; }
-        .toggle-label.active { color: var(--verde-esmeralda); }
-        .switch { position: relative; display: inline-block; width: 60px; height: 34px; flex-shrink: 0; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #bdc3c7; transition: .4s; border-radius: 34px; }
-        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        input:checked + .slider { background-color: var(--verde-esmeralda); }
-        input:checked + .slider:before { transform: translateX(26px); }
+        /* NUEVOS BOTONES DE MODALIDAD */
+        .modalidad-grid { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; flex-wrap: wrap; }
+        .btn-modalidad { 
+            background: white; border: 2px solid #ddd; border-radius: 12px; padding: 25px 40px; 
+            font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #555;
+            cursor: pointer; transition: all 0.3s; min-width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        }
+        .btn-modalidad small { font-size: 0.85rem; font-weight: 400; color: #888; }
+        .btn-modalidad:hover { transform: translateY(-5px); border-color: var(--dorado); box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2); }
+        .btn-modalidad.active { background-color: var(--verde-esmeralda); color: white; border-color: var(--verde-esmeralda); transform: scale(1.05); box-shadow: 0 10px 30px rgba(6, 43, 26, 0.3); }
+        .btn-modalidad.active small { color: #e5c185; }
 
-        @media (max-width: 600px) { .toggle-wrapper { flex-direction: column; gap: 15px; } }
-
-        /* GRID DE MATERIAS */
+        /* GRID DE MATERIAS (OCULTO AL INICIO) */
+        #materia-modulo { display: none; animation: fadeIn 0.6s ease; }
         .areas-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
         .area-card { background: white; padding: 40px; border-radius: 12px; border-bottom: 4px solid var(--dorado); box-shadow: 0 10px 25px rgba(0,0,0,0.06); text-align: center; transition: all 0.3s; flex: 1 1 300px; max-width: 450px; display: flex; flex-direction: column; position: relative; }
         .area-card.wide { flex: 1 1 100%; max-width: 930px; border-bottom-color: var(--verde-esmeralda); }
@@ -95,7 +95,7 @@
         .btn-materia:hover { background-color: var(--verde-esmeralda); color: white; }
 
         /* PLANES Y PRECIOS */
-        #planes-modulo { display: none; padding-top: 40px; border-top: 1px solid #eaeaea; }
+        #planes-modulo { display: none; padding-top: 40px; border-top: 1px solid #eaeaea; animation: fadeIn 0.6s ease; }
         .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
         .price-card { background: white; padding: 35px 25px; text-align: center; border-radius: 12px; border: 1px solid #e1e1e1; transition: all 0.3s; position: relative; display: flex; flex-direction: column; justify-content: space-between; flex: 1 1 240px; max-width: 270px; }
         .price-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--dorado); }
@@ -111,8 +111,8 @@
         .btn-select { background-color: transparent; border: 2px solid var(--verde-esmeralda); color: var(--verde-esmeralda); padding: 12px 20px; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 700; border-radius: 6px; transition: all 0.3s; width: 100%; text-transform: uppercase; font-size: 0.9rem; }
         .btn-select:hover, .btn-select.active { background-color: var(--verde-esmeralda); color: white; }
 
-        /* NUEVO CALENDARIO MENSUAL */
-        .reserva-module { background: white; padding: 50px 20px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 6px solid var(--dorado); margin-bottom: 80px; display: none; }
+        /* CALENDARIO MENSUAL */
+        .reserva-module { background: white; padding: 50px 20px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border-top: 6px solid var(--dorado); margin-bottom: 80px; display: none; animation: fadeIn 0.6s ease; }
         .status-plan { color: var(--dorado); font-weight: 700; margin-bottom: 25px; font-size: 1.3rem; text-align: center; }
         
         .calendar-wrapper { max-width: 600px; margin: 0 auto 30px auto; border: 1px solid #ddd; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
@@ -186,53 +186,58 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title"><span>Paso 1</span>Modalidad y Materia</h2>
-        <div class="toggle-wrapper">
-            <span id="label-virtual" class="toggle-label">💻 Virtual (Todo el Perú)</span>
-            <label class="switch">
-                <input type="checkbox" id="modalidad-toggle" onchange="cambiarModalidad()" checked>
-                <span class="slider"></span>
-            </label>
-            <span id="label-presencial" class="toggle-label active">📍 Presencial (Surco/Molina/Borja)</span>
+        <h2 class="section-title"><span>Paso 1</span>Elige la Modalidad</h2>
+        <div class="modalidad-grid">
+            <button class="btn-modalidad" onclick="seleccionarModalidad('Virtual', this)">
+                💻 Virtual
+                <small>(A todo el Perú)</small>
+            </button>
+            <button class="btn-modalidad" onclick="seleccionarModalidad('Presencial', this)">
+                📍 Presencial
+                <small>(Surco / La Molina / San Borja)</small>
+            </button>
         </div>
 
-        <div class="areas-grid">
-            <div class="area-card">
-                <h3>Matemáticas</h3>
-                <ul>
-                    <li>Matemática General</li>
-                    <li>Álgebra y Aritmética</li>
-                    <li>Razonamiento Matemático</li>
-                    <li>Cálculo 1 y Álgebra Lineal</li>
-                    <li>Nivel Primaria, Secundaria y PreU</li>
-                </ul>
-                <button class="btn-materia" onclick="cargarPlanes('Matemáticas')">Ver Promociones</button>
-            </div>
-            <div class="area-card">
-                <h3>Programación</h3>
-                <ul>
-                    <li>Python para principiantes</li>
-                    <li>Lógica de Programación</li>
-                    <li>Algoritmos Estructurados</li>
-                    <li>Soporte en proyectos académicos</li>
-                    <li>Preparación para la universidad</li>
-                </ul>
-                <button class="btn-materia" onclick="cargarPlanes('Python')">Ver Promociones</button>
-            </div>
-            <div class="area-card wide">
-                <h3 style="font-size: 2.2rem; margin-bottom: 10px;">👥 Sesiones Grupales</h3>
-                <p class="desc" style="margin-bottom: 15px;">Aprende con tus amigos. La tarifa es fija y se divide entre todos los integrantes. Ideal para prepararse antes de un examen final o parcial. <em>El precio es el mismo para modalidad Presencial o Virtual.</em></p>
-                <button class="btn-materia" style="width: auto; padding: 15px 50px;" onclick="cargarPlanes('Grupales')">Ver Precios de Grupos</button>
+        <div id="materia-modulo">
+            <h2 class="section-title"><span>Paso 2</span>Elige la Materia</h2>
+            <div class="areas-grid">
+                <div class="area-card">
+                    <h3>Matemáticas</h3>
+                    <ul>
+                        <li>Matemática General</li>
+                        <li>Álgebra y Aritmética</li>
+                        <li>Razonamiento Matemático</li>
+                        <li>Cálculo 1 y Álgebra Lineal</li>
+                        <li>Nivel Primaria, Secundaria y PreU</li>
+                    </ul>
+                    <button class="btn-materia" onclick="cargarPlanes('Matemáticas')">Ver Promociones</button>
+                </div>
+                <div class="area-card">
+                    <h3>Programación</h3>
+                    <ul>
+                        <li>Python para principiantes</li>
+                        <li>Lógica de Programación</li>
+                        <li>Algoritmos Estructurados</li>
+                        <li>Soporte en proyectos académicos</li>
+                        <li>Preparación para la universidad</li>
+                    </ul>
+                    <button class="btn-materia" onclick="cargarPlanes('Python')">Ver Promociones</button>
+                </div>
+                <div class="area-card wide">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 10px;">👥 Sesiones Grupales</h3>
+                    <p class="desc" style="margin-bottom: 15px;">Aprende con tus amigos. La tarifa es fija y se divide entre todos los integrantes. Ideal para prepararse antes de un examen final o parcial. <em>El precio es el mismo para modalidad Presencial o Virtual.</em></p>
+                    <button class="btn-materia" style="width: auto; padding: 15px 50px;" onclick="cargarPlanes('Grupales')">Ver Precios de Grupos</button>
+                </div>
             </div>
         </div>
 
         <div id="planes-modulo">
-            <h2 class="section-title"><span>Paso 2</span>Elige tu Plan para <span id="titulo-materia" style="display:inline; color:var(--verde-esmeralda);"></span></h2>
+            <h2 class="section-title"><span>Paso 3</span>Elige tu Plan para <span id="titulo-materia" style="display:inline; color:var(--verde-esmeralda);"></span></h2>
             <div class="pricing-grid" id="contenedor-planes"></div>
         </div>
 
         <div id="reserva-modulo" class="reserva-module">
-            <h2 class="section-title" style="margin-bottom: 15px;"><span>Paso 3</span>Agenda tus Horarios</h2>
+            <h2 class="section-title" style="margin-bottom: 15px;"><span>Paso 4</span>Agenda tus Horarios</h2>
             <div class="status-plan" id="plan-desc"></div>
             
             <div class="instruccion-bloques" id="instruccion-texto">
@@ -268,19 +273,27 @@
         <div class="faq-section">
             <details>
                 <summary>¿En qué consiste el Diagnóstico de 30 minutos?</summary>
-                <p>Es una sesión inicial <strong>completamente gratuita</strong>. Evaluamos tu nivel actual y trazamos un plan de ataque personalizado antes de empezar a cobrar la clase oficial.</p>
+                <p>Es una sesión inicial <strong>completamente gratuita</strong> incluida en tu primer plan. Evaluamos tu nivel actual, identificamos lagunas de conocimiento (usando lógica de ingeniería) y trazamos un plan de ataque personalizado antes de empezar a cobrar la clase oficial.</p>
             </details>
             <details>
                 <summary>¿Cuáles son los métodos de pago?</summary>
-                <p>Para tu tranquilidad y confianza, <strong>el pago se realiza al finalizar cada sesión</strong>. Acepto Yape, Plin o pago en Efectivo.</p>
+                <p>Para tu tranquilidad y confianza, <strong>el pago se realiza al finalizar cada sesión</strong>. Acepto Yape, Plin o pago en Efectivo (si es presencial). Nada de pagos por adelantado a ciegas.</p>
+            </details>
+            <details>
+                <summary>¿Qué zonas cubres en modalidad presencial?</summary>
+                <p>Exclusivamente Santiago de Surco, La Molina y San Borja. Si estás fuera de este radio, te invito a probar la Modalidad Virtual, que tiene un descuento especial y la misma calidad de enseñanza garantizada.</p>
+            </details>
+            <details>
+                <summary>¿Cómo funcionan los grupos?</summary>
+                <p>Si tienes amigos con el mismo problema en un curso, armen un grupo (Trío, Squad o Full). El precio que ves en la tabla es el total por la clase, se lo dividen entre ustedes. Es la opción más rentable para prepararse para parciales o finales.</p>
             </details>
         </div>
     </div>
 
     <footer>
         <h3>André Ríos Mentorías</h3>
-        <div class="footer-info">📍 Zona de Cobertura Presencial: Surco, La Molina, San Borja<br>💻 Cobertura Virtual: Todo el Perú</div>
-        <div class="pet-friendly">🐾 <strong>Pet Friendly:</strong> Ya sea presencial o virtual, soy gran fan de los animales. Tengo un perro peruano llamado Falco, ¡así que tus mascotas siempre son bienvenidas!</div>
+        <div class="footer-info">📍 Zona de Cobertura Presencial: Surco, La Molina, San Borja<br>💻 Cobertura Virtual: Todo el Perú<br>💵 Medios de Pago: Yape / Plin / Efectivo al terminar la sesión.</div>
+        <div class="pet-friendly">🐾 <strong>Pet Friendly:</strong> Ya sea en modalidad presencial en tu casa o virtual, soy gran fan de los animales. Tengo un perro peruano llamado Falco, ¡así que tus mascotas siempre son bienvenidas durante la clase!</div>
     </footer>
 
     <script>
@@ -334,14 +347,12 @@
         let currentYear = currentDate.getFullYear();
         let selectedDateObj = null; 
         
-        // Estructura de seleccionados: Array de objetos { fullDateStr, time, id }
         let seleccionadosData = [];
 
         const nombresMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
         const diasNombresCortos = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
         const bloquesBase = ["08:00 AM", "09:30 AM", "11:00 AM", "12:30 PM", "02:00 PM", "03:30 PM", "05:00 PM", "06:30 PM", "08:00 PM", "09:30 PM", "11:00 PM"];
         
-        // Reglas de la Universidad (Ej: "Lun - 08:00 AM" bloquea TODOS los lunes a esa hora)
         const horariosOcupados = [
             "Lun - 08:00 AM", "Lun - 09:30 AM", "Lun - 03:30 PM", "Lun - 05:00 PM", "Lun - 06:30 PM", "Lun - 08:00 PM",
             "Mié - 03:30 PM", "Mié - 05:00 PM", "Mié - 06:30 PM", "Mié - 08:00 PM",
@@ -352,17 +363,21 @@
 
         let materiaActual = '';
         let planActual = null;
-        let modalidadActual = 'Presencial';
+        let modalidadActual = '';
 
-        function cambiarModalidad() {
-            const isPresencial = document.getElementById('modalidad-toggle').checked;
-            modalidadActual = isPresencial ? 'Presencial' : 'Virtual';
-            document.getElementById('label-presencial').classList.toggle('active', isPresencial);
-            document.getElementById('label-virtual').classList.toggle('active', !isPresencial);
+        function seleccionarModalidad(mod, btn) {
+            modalidadActual = mod;
+            
+            document.querySelectorAll('.btn-modalidad').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            document.getElementById('materia-modulo').style.display = 'block';
+            
             if (materiaActual) {
                 cargarPlanes(materiaActual);
-                document.getElementById('reserva-modulo').style.display = 'none';
             }
+            
+            document.getElementById('materia-modulo').scrollIntoView({ behavior: 'smooth' });
         }
 
         function cargarPlanes(materia) {
@@ -370,7 +385,9 @@
             document.getElementById('titulo-materia').innerText = `${materia} (${modalidadActual})`;
             const contenedor = document.getElementById('contenedor-planes');
             contenedor.innerHTML = '';
+            
             const planesMostrar = tarifas[materia][modalidadActual];
+            
             planesMostrar.forEach(p => {
                 contenedor.innerHTML += `
                     <div class="price-card ${p.tag ? 'featured' : ''}">
@@ -382,6 +399,7 @@
                         <button class="btn-select" onclick="seleccionarPlan('${p.nombre}', ${p.precio}, ${p.slots}, this)">Seleccionar Plan</button>
                     </div>`;
             });
+            
             document.getElementById('planes-modulo').style.display = 'block';
             document.getElementById('reserva-modulo').style.display = 'none';
             document.getElementById('planes-modulo').scrollIntoView({ behavior: 'smooth' });
@@ -389,7 +407,7 @@
 
         function seleccionarPlan(nombre, precio, slots, btn) {
             planActual = { nombre, precio, slots }; 
-            seleccionadosData = []; // Resetear selecciones
+            seleccionadosData = [];
             document.getElementById('contenedor-horarios-dia').style.display = 'none';
             
             document.querySelectorAll('.btn-select').forEach(b => b.classList.remove('active')); 
@@ -403,7 +421,6 @@
             document.getElementById('reserva-modulo').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // FUNCIONES DEL CALENDARIO MENSUAL
         function cambiarMes(offset) {
             currentMonth += offset;
             if (currentMonth < 0) { currentMonth = 11; currentYear--; }
@@ -424,7 +441,6 @@
             let hoy = new Date();
             hoy.setHours(0,0,0,0);
 
-            // Espacios vacíos antes del primer día
             for (let i = 0; i < primerDiaMes; i++) {
                 grid.innerHTML += `<div class="calendar-day" style="background:transparent; cursor:default;"></div>`;
             }
@@ -436,7 +452,6 @@
                 let isPast = fechaActual < hoy;
                 let isSelected = selectedDateObj && fechaActual.getTime() === selectedDateObj.getTime();
                 
-                // Chequear si este día tiene selecciones guardadas
                 let hasSelections = seleccionadosData.some(s => s.fechaStr === fechaStr);
 
                 let clases = "calendar-day";
@@ -454,7 +469,7 @@
 
         function seleccionarDia(year, month, day) {
             selectedDateObj = new Date(year, month, day);
-            renderizarMes(); // para repintar el día activo
+            renderizarMes(); 
             mostrarHorariosDia(year, month, day);
         }
 
@@ -473,11 +488,9 @@
             titulo.innerText = `Horarios para el ${fechaDisplayStr}`;
 
             bloquesBase.forEach(hora => {
-                // Chequear bloqueo de universidad ("Lun - 08:00 AM")
                 const reglaBloqueo = `${diaSemanaNombre} - ${hora}`;
                 const estaOcupado = horariosOcupados.includes(reglaBloqueo);
                 
-                // ID único para esta fecha y hora específica
                 const slotID = `${fechaStr}|${hora}`;
                 const estaSeleccionado = seleccionadosData.some(s => s.id === slotID);
                 
@@ -487,7 +500,6 @@
                 gridHorarios.innerHTML += `<div class="bloque-hora ${claseExtra}" onclick="toggleHorarioSlot('${slotID}', '${fechaStr}', '${fechaDisplayStr}', '${hora}', this)">${hora}</div>`;
             });
             
-            // Scroll suave hacia los horarios
             container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
@@ -495,11 +507,9 @@
             if (el.classList.contains('ocupado')) return;
 
             if (el.classList.contains('seleccionado')) {
-                // Desmarcar
                 el.classList.remove('seleccionado');
                 seleccionadosData = seleccionadosData.filter(s => s.id !== slotID);
             } else {
-                // Marcar
                 if (seleccionadosData.length >= planActual.slots) {
                     alert(`Has alcanzado el límite de tu plan (${planActual.slots} clases). Desmarca un horario si deseas cambiar.`);
                     return;
@@ -512,7 +522,7 @@
                 });
             }
             
-            renderizarMes(); // Para pintar el puntito debajo del día
+            renderizarMes(); 
             actualizarInstruccion();
         }
 
@@ -534,13 +544,12 @@
         }
 
         function generarLinkWhatsApp() {
-            let msg = `Hola André, vengo de tu web. Me interesa agendar el Diagnóstico de 30 min y reservar mi plan:\n\n`;
+            let msg = `Hola André, vengo de tu web. Me interesa agendar mi asesoría:\n\n`;
             msg += `📍 *Modalidad:* ${modalidadActual}\n`;
             msg += `📘 *Materia:* ${materiaActual}\n`;
             msg += `💰 *Plan:* ${planActual.nombre} (S/ ${planActual.precio.toFixed(2)})\n\n`;
             msg += `🗓️ *Fechas Seleccionadas:* \n`;
             
-            // Ordenar cronológicamente (opcional, pero se ve mejor)
             seleccionadosData.forEach((s, i) => {
                 msg += `${i+1}. ${s.textoDisplay}\n`;
             });
@@ -549,7 +558,6 @@
             document.getElementById('link-whatsapp-final').href = `https://wa.me/51970549915?text=${encodeURIComponent(msg)}`;
         }
         
-        // Inicializar calendario vacío al cargar por si acaso
         renderizarMes();
     </script>
 </body>
